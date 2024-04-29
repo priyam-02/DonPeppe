@@ -17,3 +17,4 @@ Back-end technologies include Python, Django.
 The software used is PyCharm, and for the database, MySQL is used.
 
 
+![1](https://github.com/priyam-02/DonPeppe/assets/108848788/d58bcb8f-6e67-4170-a5a0-cb366f024291)
