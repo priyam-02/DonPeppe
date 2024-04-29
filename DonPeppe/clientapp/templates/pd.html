@@ -1,0 +1,406 @@
+{% extends 'hed2.html' %}
+{% load static %}
+{% block content %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+  <head>
+	  {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+      <link href="{% static '/css/pd.css' %}" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	  <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+    <style>
+    .tab-content img {
+    width: 350px;
+    height:350px;
+    -webkit-animation-name: opacity;
+    animation-name: opacity;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+}
+
+
+}
+/ E-commerce /
+.product-box {
+  padding: 0;
+  border: 1px solid #e7eaec;
+}
+.product-box:hover,
+.product-box.active {
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 3px 7px 0 #a8a8a8;
+  -moz-box-shadow: 0 3px 7px 0 #a8a8a8;
+  box-shadow: 0 3px 7px 0 #a8a8a8;
+}
+.product-imitation {
+  text-align: center;
+  padding: 90px 0;
+  background-color: #f8f8f9;
+  color: #bebec3;
+  font-weight: 600;
+}
+.cart-product-imitation {
+  text-align: center;
+  padding-top: 30px;
+  height: 80px;
+  width: 80px;
+  background-color: #f8f8f9;
+}
+.product-imitation.xl {
+  padding: 120px 0;
+}
+.product-desc {
+  padding: 20px;
+  position: relative;
+}
+.ecommerce .tag-list {
+  padding: 0;
+}
+.ecommerce .fa-star {
+  color: #d1dade;
+}
+.ecommerce .fa-star.active {
+  color: #f8ac59;
+}
+.ecommerce .note-editor {
+  border: 1px solid #e7eaec;
+}
+table.shoping-cart-table {
+  margin-bottom: 0;
+}
+table.shoping-cart-table tr td {
+  border: none;
+  text-align: right;
+}
+table.shoping-cart-table tr td.desc,
+table.shoping-cart-table tr td:first-child {
+  text-align: left;
+}
+table.shoping-cart-table tr td:last-child {
+  width: 80px;
+}
+.product-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #676a6c;
+  display: block;
+  margin: 2px 0 5px 0;
+}
+.product-name:hover,
+.product-name:focus {
+  color: #1ab394;
+}
+.product-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1ab394;
+  padding: 6px 12px;
+  position: absolute;
+  top: -32px;
+  right: 0;
+}
+.product-detail .ibox-content {
+  padding: 30px 30px 50px 30px;
+}
+.image-imitation {
+  background-color: #f8f8f9;
+  text-align: center;
+  padding: 200px 0;
+}
+.product-main-price small {
+  font-size: 10px;
+}
+.product-images {
+  margin: 0 20px;
+}
+
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+.ibox.collapsed .ibox-content {
+  display: none;
+}
+.ibox.collapsed .fa.fa-chevron-up:before {
+  content: "\f078";
+}
+.ibox.collapsed .fa.fa-chevron-down:before {
+  content: "\f077";
+}
+.ibox:after,
+.ibox:before {
+  display: table;
+}
+.ibox-title {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #ffffff;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 3px 0 0;
+  color: inherit;
+  margin-bottom: 0;
+  padding: 14px 15px 7px;
+  min-height: 48px;
+}
+.ibox-content {
+  background-color: #ffffff;
+  color: inherit;
+  padding: 15px 20px 20px 20px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0;
+}
+.ibox-footer {
+  color: inherit;
+  border-top: 1px solid #e7eaec;
+  font-size: 90%;
+  background: #ffffff;
+  padding: 10px 15px;
+}
+
+.des{
+    padding: 10px 20px;
+    padding-inline: 9px;
+    border-radius: 5px;
+    background-color: #d14126;
+    color: white;
+    text-decoration:none;
+}
+ a:hover {
+    color: white;
+    text-decoration:none;
+}
+.f{
+    font-size: 18px;
+    padding-inline: 9px;
+    border-radius: 5px;
+    background-color: #d14126;
+    color: white;
+    text-decoration:none;
+    border-color: #d14126;
+}
+.f1{
+     padding: 13px 40px;
+}
+.checked, .price span {
+    color: #d14126;
+}
+.w{
+      width:250px;
+      height:210px;
+      margin-left: 0px;
+
+}
+
+    .related.products h2 {
+    font-size: 25px;
+    line-height: 1.4em;
+    letter-spacing: .05em;
+    display: block;
+    margin: 36px 0;
+    text-align: center;
+    color: #000;
+
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+</style>
+  </head>
+
+  <body>
+<!--<input type="text" value="{{p1.name}}">-->
+<div class="qodef-content">
+<div class="anim4 qodef-content-inner">
+	<div class="container">
+		<div style="background:transparent; border:2px solid white; border-radius:16px;" class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+
+					<div class="preview col-md-6">
+
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1">
+
+                              <img src="{% static 'assets/images/products/' %}{{s.pimg}}" />
+                          </div>
+<!--						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>-->
+						</div>
+<!--						<ul class="preview-thumbnail nav nav-tabs">-->
+<!--						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
+<!--						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
+<!--						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
+<!--						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
+<!--						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
+<!--						</ul>-->
+
+					</div>
+
+					<div style="width:1000px;" class="details col-md-6">
+						<h3 style="color: #b7903c; text-shadow: 3px 2px #d2401c; " class="product-title">{{s.proname}}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span style="color:white;" class="fa fa-star"></span>
+								<span style="color:white;" class="fa fa-star"></span>
+							</div>
+							<span style="color:white;font-family:Oswald;font-size:15px;" class="review-no">41 reviews</span>
+						</div>
+						<p style="color:white; font-family:Oswald;font-size:19px;" class="product-description">{{s.prod}}</p>
+						<h4 style="color:#b7903c; font-family:Oswald;" class="price"> price: <span>${{s.price}}</span></h4>
+<!--						<h4 class="price-{{data.id}}"> price: <span>{{s.product_set.first.price}}</span></h4>-->
+<!--						<h5 class="sizes">sizes:-->
+<!--								{% for si in size %}-->
+<!--							<button data-price="{{si.price}}" class="btn btn-outline-secondary btn-sm">{{si.title}}</button>-->
+<!--&lt;!&ndash;							<span class="size" data-toggle="tooltip" title="small">{{si.title}}</span>&ndash;&gt;-->
+<!--								{% endfor %}-->
+<!--&lt;!&ndash;							<span class="size" data-toggle="tooltip" title="medium">m</span>&ndash;&gt;-->
+<!--&lt;!&ndash;							<span class="size" data-toggle="tooltip" title="large">l</span>&ndash;&gt;-->
+
+<!--							</h5>-->
+
+						<form action="/cart/" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							 <input type="hidden" name="customer" value="{{p1.id}}">
+                              <input type="hidden" name="price" value="{{s.price}}">
+
+									<label style="color:#b7903c; font-family:Oswald; font-size:18px;" for="q">QUANTITY: </label>
+							<button type="button" class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      <i style="color: #d2401c;font-size: 16px;" class="fa fa-plus"></i>
+                    </button>
+								   <input id="q" min="0" name="quantity" value="1" type="number" class="mb-0" style=" width: 30px; height:30px; font-size:20px; text-align:center;" />
+						<button type="button" class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <i style="color: #d2401c;font-size: 16px;" class="fas fa-minus"></i>
+                    </button>
+
+
+
+<br><br>
+
+									<input type="hidden" name="productd" value="{{s.id}}">
+
+
+							  <button  class="f f1">Add to cart</button>
+
+						</form>
+
+<script>
+	$(".choose-size").on('click',function(){
+	$(".choose-size").removeClass('active');
+	$(this).addClass('active');
+
+	var _price=$(this).attr('data-price');
+	$(".product-price").text(_price);
+   })
+	// End
+
+	// Show the first selected color
+<!--	$(".choose-color").first().addClass('focused');-->
+<!--	var _color=$(".choose-color").first().attr('data-color');-->
+	var _price=$(".choose-size").first().attr('data-price');
+
+<!--	$(".color"+_color).show();-->
+<!--	$(".color"+_color).first().addClass('active');-->
+	$(".product-price").text(_price);
+
+
+
+
+</script>
+
+
+
+
+<!--						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
+
+<!--						<h5 class="colors">colors:-->
+<!--							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>-->
+<!--							<span class="color green"></span>-->
+<!--							<span class="color blue"></span>-->
+<!--						</h5>-->
+<!--						<div class="action">-->
+<!--							<a href="/cart/" class="f f1">Add to cart</a>-->
+<!--							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>-->
+<!--						</div>-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <br>
+    <br>
+			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<section class="related products">
+<h2 style="font-weight:500; font-family:Oswald;color: #b7903c; font-size: 30px; letter-spacing: 5px;">Related products</h2>
+<div class="container">
+<div class="row">
+    {% for v in r %}
+    <div  class="col-md-3">
+        <div  class="ibox">
+            <div style="background: transparent; border: 2px solid white; border-radius: 16px;" class="ibox-content product-box">
+				<a href="/pd/{{v.id}}">
+                 <img  class="w" src="{% static 'assets/images/products/' %}{{v.pimg}}" width="230px" height="230px" >
+				</a>
+                   <div class="product-desc" style="text-align: center;font-size: 16px;">
+
+<!--                    <small class="text-muted">Category</small>-->
+                    <b style="color: #b7903c; text-shadow: 2px 1px #d2401c; text-transform:uppercase;">{{v.proname}}</b>
+					   <br><br>
+                    <b style="color:#b7903c; font-family:Oswald;">PRICE:</b> <b style="color: #d14126;font-family:Oswald;">${{v.price}}</b>
+
+
+
+<!--                    <div class="small m-t-xs">-->
+<!--                        Many desktop publishing packages and web page editors now.-->
+<!--                    </div>-->
+
+                </div>
+                 <div  class="m-t text-righ"  style="text-align: center;">
+
+                         <a  href="/pd/{{v.id}}" class="des"> VIEW ITEM </a>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+</div>
+	</section>
+  </body>
+{% endblock %}

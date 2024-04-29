@@ -1,0 +1,663 @@
+{% extends 'hed2.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />-->
+  <!--plugins-->
+  <link href="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/bootstrap-extended.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/icons.css' %}' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'cdn.jsdelivr.net/npm/bootstrap-icons%401.5.0/font/bootstrap-icons.css' %}">
+
+
+  <!-- loader-->
+	<link href="{% static 'assets/css/pace.min.css' %}" rel="stylesheet" />
+
+  <!--Theme Styles-->
+  <link href="{% static 'assets/css/dark-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/light-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/semi-dark.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/header-colors.css' %}" rel="stylesheet" />
+  <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />
+  <title>Register</title>
+</head>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+::-moz-selection {
+    background: #cc0000;
+    text-shadow: none;
+}
+
+::selection {
+    background: #cc0000;
+    text-shadow: none;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+
+<!--html,body {-->
+<!--  height: 100%;-->
+<!--  margin: 0;-->
+<!--  padding: 2px0;-->
+<!--}-->
+
+<!--body {-->
+<!--  background: #1b1b1b;-->
+<!--  color: #FFF;-->
+<!--  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;-->
+<!--  font-size: 12px;-->
+<!--  line-height: 1;-->
+<!--  margin-bottom:200px;-->
+<!--}-->
+.l{
+margin-top:700px;
+}
+
+.background-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  background-color: #3d3c3c;
+  background-image: url({% static 'wp-content/uploads/2019/12/register.jpg' %});
+  background-repeat: no-repeat;
+  background-position: top;
+  background-blend-mode: overlay;
+  background-size: auto;
+}
+
+.background {
+<!--  background: url('https://myrror.co/etc/419062774_1385132057.jpg');-->
+<!--  background-position: center;-->
+<!--  background-size: cover;-->
+<!--  filter: blur(10px);-->
+  height: 105%;
+  position: relative;
+  width: 105%;
+  right: -2.5%;
+  left: -2.5%;
+  top: -2.5%;
+  bottom: -2.5%;
+}
+
+* {
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+}
+
+form {
+  background: #1b1b1b;
+  border: 1px solid #191919;
+  border-radius: .4em;
+  bottom: 0;
+  box-shadow: 0 5px 10px 5px rgba(0,0,0,1);
+  height: 640px;
+  left: 0;
+  margin: 290px 29px 0px 500px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 500px;
+}
+
+form:after {
+  background: linear-gradient(to right, #111111, #444444, #b6b6b8, #444444, #2F2F2F, #272727);
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50px;
+  position: absolute;
+  top: 0;
+  width: 150px;
+}
+
+form:before {
+  border-radius: 50%;
+  box-shadow: 0 0 6px 4px #fff;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 34%;
+  position: absolute;
+  top: -7px;
+  width: 8px;
+}
+
+.inset {
+  border-top: 1px solid #19191a;
+  padding: 20px;
+}
+
+form h1 {
+  font-family: 'Audiowide';
+  border-bottom: 1px solid #000;
+  font-size: 18px;
+  padding: 15px 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 0 #000;
+}
+
+form h1 {
+  color: white;
+  font-family: Audiowide;
+  font-weight: normal;
+
+}
+
+form h1.poweron {
+  color: #ffffff;
+  transition: all 0.5s;
+  animation: flicker 1s ease-in-out 1 alternate, neon 1.5s ease-in-out infinite alternate;
+  animation-delay: 0s, 1s;
+}
+
+form h1:after {
+  position: absolute;
+  width: 250px;
+  height: 180px;
+  content: "";
+  display: block;
+  pointer-events: none;
+  top: 0;
+  margin-left: 138px;
+  transform-style: flat;
+  transform: skew(20deg);
+
+<!--  background: -moz-linear-gradient(top, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0) 100%);-->
+<!--  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsla(0,0%,100%,0.2)), color-stop(100%,hsla(0,0%,100%,0)));-->
+<!--  background: -webkit-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);-->
+<!--  background: -o-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);-->
+<!--  background: -ms-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);-->
+<!--  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42ffffff', endColorstr='#00ffffff',GradientType=0 );-->
+<!--  background: linear-gradient(to bottom, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);-->
+
+}
+
+input[type=text], input[type=password] ,input[type=email]{
+  background: linear-gradient(#1f2124,#27292c);
+  border: 1px solid #222;
+  border-radius: .3em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  color: #FFF;
+  font-size: 13px;
+  margin-bottom: 25.5px;
+  padding: 8px 5px;
+  width: 70%;
+  margin-left: 70px;
+}
+.city select{
+ background: linear-gradient(#1f2124,#27292c);
+  border: 1px solid #222;
+  border-radius: .3em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  color: #FFF;
+  font-size: 13px;
+  margin-bottom: 25.5px;
+  padding: 8px 5px;
+  width: 70%;
+  margin-left:70px;
+}
+.city select option{
+  background: linear-gradient(#1f2124,#27292c);
+  border: 1px solid #222;
+  border-radius: .3em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  color: #1f1d1c;
+  font-size: 16px;
+  margin-bottom: 25.5px;
+  padding: 8px 5px;
+  width: 100%;
+}
+. city option-item:hover{
+  background-color: #999;
+
+}
+
+input[type=text]:disabled, input[type=password]:disabled {
+	color: #999;
+}
+
+label[for=remember] {
+  color: #bbb;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: top;
+  padding: 0 0 0 5px;
+}
+
+.p-container {
+  padding: 0 20px 20px;
+  font-size: 17px;
+
+}
+.p-container a{
+
+  color:white;
+
+}
+
+.p-container a:hover{
+
+  color:#d2401c;
+
+}
+
+.p-container:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.p-container span {
+  color: #0d93ff;
+  display: block;
+  float: left;
+  padding-top: 8px;
+}
+
+button[type=submit] {
+  background: #d2401c;;
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: .5em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  height: 40px;
+  padding: 5px 20px;
+  width: 50%;
+}
+
+.denied {
+  color: white !important;
+  text-shadow: 0 0 1px black;
+<!--  background: #EE0000 !important;-->
+}
+
+button[type=submit]:hover, input[type=submit]:focus {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -10px 10px rgba(255,255,255,0.1);
+}
+
+input[type=text]:hover:disabled,
+input[type=text]:focus,
+input[type=password]:hover:not([disabled]),
+input[type=password]:focus,
+label:hover ~ input[type=text],
+label:hover ~ input[type=password] {
+  background: #27292c;
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  background: red;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.checkboxouter {
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  background-color: #000;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #555;
+}
+
+.checkbox {
+  position: absolute;
+  border-bottom: 2px solid #333;
+  border-right: 2px solid #333;
+  background-color: transparent;
+  height: 10px;
+  width: 5px;
+  margin: auto;
+  left: 50%;
+  transform: rotate(45deg);
+  transform-origin: -35% 30%;
+  transition: all 0.2s;
+}
+
+input[type="checkbox"]:checked ~ .checkbox {
+  transition: all 0.3s;
+  border-bottom: 2px solid #ffcc00;
+  border-right: 2px solid #ffcc00;
+}
+
+@keyframes neon {
+   from {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  to {
+      text-shadow:
+      0 0 3px black,
+      0 0 7px  black,
+      0 0 13px  black,
+      0 0 17px  white,
+      0 0 33px  white,
+      0 0 38px  white,
+      0 0 48px white,
+      0 0 63px white;
+    }
+}
+
+@keyframes flicker {
+  0% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  2% {
+    text-shadow: none;
+  }
+
+  8% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  10% {
+    text-shadow: none;
+  }
+
+  20% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  22% {
+    text-shadow: none;
+  }
+
+  24% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  28% {
+    text-shadow: none;
+  }
+
+  32% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+
+  34% {
+    text-shadow: none;
+  }
+
+  36% {
+    text-shadow: none;
+  }
+
+  42% {
+    text-shadow: none;
+  }
+
+  100% {
+    text-shadow:
+    0 0 2.5px black,
+    0 0 5px black,
+    0 0 7.5px black,
+    0 0 10px white,
+    0 0 17.5px white,
+    0 0 20px white,
+    0 0 25px white,
+    0 0 37.5px white;
+  }
+}
+.p-c h6{
+margin:0px 0px 0px 20px;
+font-size:12px;
+}
+
+<!--    .qodef-content-aligment-left {-->
+<!--    text-align: left;-->
+<!--    background: white;-->
+<!--    }-->
+
+<!--    .qodef-btn {-->
+<!--    position: relative;-->
+<!--    width: auto;-->
+<!--    margin: 0;-->
+<!--    font-family: Oswald,sans-serif;-->
+<!--    font-size: 12px;-->
+<!--    line-height: 1.4em;-->
+<!--    letter-spacing: .2em;-->
+<!--    font-weight: 500;-->
+<!--    margin-bottom: 20px;-->
+<!--    margin-top: 20px;-->
+<!--    text-transform: uppercase;-->
+<!--    outline: 0;-->
+<!--    -webkit-box-sizing: border-box;-->
+<!--    box-sizing: border-box;-->
+<!--    -webkit-transition: color .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out;-->
+<!--    -o-transition: color .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out;-->
+<!--    transition: color .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out;-->
+<!--    padding: 15px 30px;-->
+<!--    cursor: pointer;-->
+<!--}-->
+
+
+
+<!--    .wpcf7-form-control wpcf7-text{-->
+<!--    width:82%;-->
+<!--    .wp-caption, img {-->
+<!--    height: 800px;-->
+<!--    max-width: 700px;-->
+<!--    float: left;-->
+<!--    line-height:0px;-->
+<!--}-->
+
+
+</style>
+
+<body>
+
+<!--<div class="qodef-content">-->
+<!--<div class="qodef-content-inner">-->
+<!--&lt;!&ndash;<div class="qodef-title-holder qodef-standard-type qodef-title-va-header-bottom qodef-preload-background qodef-has-bg-image qodef-bg-responsive-disabled" style="height: 500px;background-color: #1b1b1b;background-image:url({% static 'wp-content/uploads/2019/10/foodj.jpg' %});" data-height="500">&ndash;&gt;-->
+<!--<div class="qodef-title-image">-->
+<!--&lt;!&ndash;<img itemprop="image" src="{% static 'wp-content/uploads/2019/10/get-in-touch-titile-img.jpg '%}" alt="d" />&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="qodef-title-wrapper" style="height: 500px">-->
+<!--<div class="qodef-title-inner">-->
+<!--<div class="qodef-grid">-->
+<!--<h6 class="qodef-page-subtitle" style="max-width: 450px"></h6>-->
+<!--<h1 class="qodef-page-title entry-title">Register YourSelf</h1>-->
+<!--<p class="qodef-page-intro" style="max-width: 450px"></p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div>
+    <div class="background-wrap">
+  <div class="background"></div>
+</div>
+<div>
+
+  <form class="w3-animate-zoom" id="accesspanel" action="/register/" method="post">
+	{% csrf_token %}
+  <h1 class="poweron" id="litheader">Register</h1>
+     <div class="p-c">
+	  <h6  style="color:red">
+			  {% for msg in messages %}
+			    {{msg}}
+			  {% endfor %}
+			</h6>
+		  </div>
+  <div class="inset">
+    <p>
+      <input type="text" name="name" id="name" placeholder="Name" required style="color:white; font-size:15px;">
+    </p>
+    <p>
+      <input type="email" name="email" id="email" placeholder="Email address" required style="color:white; font-size:15px;">
+    </p>
+    <p>
+      <input type="text" maxlength="10" name="contact" id="contact" placeholder="Contact" required style="color:white; font-size:15px;">
+    </p>
+    <p>
+      <input type="text" name="address" id="address" placeholder="Address" required style="color:white; font-size:15px;">
+    </p>
+
+    <p>
+      <input type="password" maxlength="4" name="password" id="password" placeholder="Password" required style="color:white; font-size:15px;">
+    </p>
+    <p>
+      <input type="password"  maxlength="4" name="c_password" id="cpassword" placeholder="Confirm Password" required style="color:white; font-size:15px;">
+    </p>
+    <p>
+      <span class="city"  >
+            <select id="country" name="city_id" required style="color:grey; font-size:15px;" >
+              <option value="">Choose your city* </option>
+                {% for val in c %}
+              <option value="{{val.id}}">{{val.name}}</option>
+                {% endfor %}
+            </select>
+       </span></p>
+<!--    <div style="text-align: center;">-->
+<!--      <div class="checkboxouter">-->
+<!--        <input type="checkbox" name="rememberme" id="remember" value="Remember">-->
+<!--        <label class="checkbox"></label>-->
+<!--      </div>-->
+<!--      <label for="remember">Remember me </label>-->
+<!--    </div>-->
+    <input class="loginLoginValue" type="hidden" name="service" value="login" style="color:white; font-size:15px;" />
+  </div>
+    <center>
+  <p class="p-container">
+    <button style="font-family: Oswald; letter-spacing:2px;" type="submit" name="Login" id="go" >REGISTER</button>
+</center>
+
+     <div style="text-align: center; color:white;" class="col-12">
+                            <p class="p-container">Already have an account? <a style="cursor: pointer;" href="/login/ ">Login</a></p>
+                          </div>
+    <!--  </p>-->
+<!--    <p class="p-container"><a href="/forgotapp/">Lost Your Password?</a></p>-->
+</form>
+
+</div>
+<div class="l" ><h1>
+
+ </br> </br> </br> </br> </br> </br> </br>
+
+
+</h1>
+
+	</div>
+<!--<div class="screen-reader-response"></div>-->
+<!--<form action="/register/" method="post">-->
+<!--    {% csrf_token %}-->
+<!--     <h3 style="color : red">-->
+<!--        {% for msg in messages %}-->
+<!--              {{msg}}-->
+<!--        {% endfor %}-->
+<!--     </h3>-->
+
+<!--<p><span class="wpcf7-form-control-wrap your-name" ><input type="text" name="name" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Name*" style="width:82% "/></span></p>-->
+<!--<p><span class="wpcf7-form-control-wrap your-email"><input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"aria-invalid="false" placeholder="Email*" style="width:82%" /></span></p>-->
+<!--<p><span class="wpcf7-form-control-wrap your-contact"><input type="number" name="contact" value="" size="10" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="contact*" style="width:82%" /></span></p>-->
+<!--<p><span class="wpcf7-form-control-wrap your-address"><input type="text" name="address" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Address*" style="width:82%" /></span></p>-->
+<!--<p><span class="wpcf7-form-control-wrap your-password"><input type="password" name="password" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Password*" style="width:82%" /></span></p>-->
+<!--<p><span class="wpcf7-form-control-wrap your-password"><input type="password" name="c_password" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Conform Password*" style="width:82%" /></span></p>-->
+
+<!--  <p><span class="wpcf7-form-control-wrap your-password">-->
+<!--            <select class="wpcf7-form-control wpcf7-text" id="country" name="city_id" required style="width:82%">-->
+<!--              <option value="">Choose your city* </option>-->
+<!--                {% for val in c %}-->
+<!--              <option value="{{val.id}}">{{val.name}}</option>-->
+<!--                {% endfor %}-->
+<!--            </select>-->
+<!--       </span></p>-->
+
+
+<!--<p><button type="submit" class="wpcf7-form-control wpcf7-submit qodef-btn qodef-btn-medium qodef-btn-solid"><span class="qodef-btn-text">SUBMIT</span></button></p>-->
+<!--<div class="wpcf7-response-output wpcf7-display-none"></div>-->
+<!--</form>-->
+</div>
+</body>
+{% endblock %}

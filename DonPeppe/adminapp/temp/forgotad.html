@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" class="dark-theme">
+{% load static %}
+
+
+<!-- Mirrored from codervent.com/onedash/demo/ltr/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 07:02:11 GMT -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />-->
+  <!--plugins-->
+  <link href="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/bootstrap-extended.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/icons.css' %}' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'cdn.jsdelivr.net/npm/bootstrap-icons%401.5.0/font/bootstrap-icons.css' %}">
+      <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />
+
+
+
+  <!-- loader-->
+	<link href="{% static 'assets/css/pace.min.css' %}" rel="stylesheet" />
+
+  <!--Theme Styles-->
+  <link href="{% static 'assets/css/dark-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/light-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/semi-dark.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/header-colors.css' %}" rel="stylesheet" />
+
+  <title>Admin</title>
+    <style>
+      .btn-war2 {
+    color: #000;
+    background-color: #d43f1e;
+    border-color: #d43f1e;
+}
+    a{
+     color: #fff;
+}
+a:hover{
+    color: #d43f1e;
+}
+.bg-login {
+    background-color: #202a40!important;
+}
+  </style>
+</head>
+
+<style>
+    .btn-war2 {
+    color: #000;
+    background-color: #d43f1e;
+    border-color: #d43f1e;
+}
+.bg-login {
+    background-color: #202a40!important;
+}
+img, svg {
+    margin-left: 40px;
+    vertical-align: middle;
+}
+a{
+     color: #fff;
+}
+a:hover{
+    color: #d43f1e;
+}
+
+</style>
+<body>
+<div class="w3-container w3-animate-left">
+  <!--start wrapper-->
+  <div class="wrapper">
+
+       <!--start content-->
+       <main class="authentication-content">
+        <div class="container-fluid">
+          <div class="authentication-card">
+            <div class="card shadow rounded-0 overflow-hidden">
+              <div class="row g-0">
+                <div class="col-lg-6 bg-login d-flex align-items-center justify-content-center">
+                  <img id="logo" src="{% static 'assets/images/login.png' %}" height="440px" width="500px">
+                </div>
+                <div class="col-lg-6">
+                  <div class="card-body p-4 p-sm-5">
+                   <h5 class="card-title">Forgot Password</h5>
+                    <p class="card-text mb-5">Enter your registered email ID to reset the password</p>
+                    <h6  style="color:red">
+                        {% for msg in messages %}
+                          {{msg}}
+                        {% endfor %}
+                    </h6>
+                    <form id="1" class="form-body" method="post" action="/adminpanel/forgotad/">
+                      {% csrf_token %}
+                        <div class="row g-3">
+                          <div class="col-12">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg radius-30" placeholder="Email id">
+                          </div>
+                          <div class="col-12">
+                            <div class="d-grid gap-3">
+                              <button type="submit" class="btn btn-war2 radius-30">Send</button>
+<!--							                <a href="/signin/" class="btn btn-lg btn-light radius-30">Back to Login</a>-->
+                            </div>
+                          </div>
+                        </div>
+                    </form>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </main>
+
+       <!--end page main-->
+
+  </div>
+  <!--end wrapper-->
+
+
+  <!--plugins-->
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/pace.min.js' %}"></script>
+
+</div>
+</body>
+
+
+<!-- Mirrored from codervent.com/onedash/demo/ltr/authentication-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 07:05:28 GMT -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

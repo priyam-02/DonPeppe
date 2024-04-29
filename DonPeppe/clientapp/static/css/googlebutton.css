@@ -1,0 +1,62 @@
+.google-button {
+	 margin-bottom: 45px;
+}
+ .google-button .button {
+	 width: 337px;
+	 height: 70px;
+	 font-family: "Noto Sans", sans-serif;
+	 background-color: #5b86e6;
+	 box-shadow: 3px 5px 5px rgba(91, 134, 230, 0.5);
+	 border: none;
+	 border-radius: 5px;
+	 color: white;
+	 padding: 25px 60px 25px 100px;
+	 text-align: center;
+	 text-decoration: none;
+	 font-size: 18px;
+	 font-weight: 400;
+	 cursor: pointer;
+	 line-height: 22px;
+	 position: relative;
+	 outline-style: none;
+	 transition: background 300ms ease-in-out;
+}
+ .google-button .button::before {
+	 content: "";
+	 background: #fff url("https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/2659939281579738432-32.png") no-repeat center;
+	 border-radius: 5px;
+	 width: 55px;
+	 height: 55px;
+	 position: absolute;
+	 left: 12px;
+	 top: 7px;
+	 display: inline-block;
+	 margin-right: 40px;
+}
+ .google-button .button:hover {
+	 background: #00008b;
+}
+ .form-text {
+	 text-transform: uppercase;
+	 color: black;
+	 position: relative;
+	 margin-bottom: 45px;
+}
+ .form-text::before {
+	 content: "";
+	 width: 55px;
+	 height: 1px;
+	 background: black;
+	 position: absolute;
+	 left: -80px;
+	 top: 50%;
+}
+ .form-text::after {
+	 content: "";
+	 width: 55px;
+	 height: 1px;
+	 background: #949495;
+	 position: absolute;
+	 right: -80px;
+	 top: 50%;
+}

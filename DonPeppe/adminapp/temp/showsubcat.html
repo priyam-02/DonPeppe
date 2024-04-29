@@ -1,0 +1,203 @@
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div class="w3-container w3-animate-right">
+
+<div>
+  <div class="col-12 col-lg-8 d-flex" style="margin: 90px 290px;">
+                      <div class="card border shadow-none w-100">
+                        <div class="card-header py-3">
+                  <h6 class="mb-0">Sub-Categories</h6>
+                </div>
+                        <div class="card-body">
+
+                          <div class="table-responsive">
+                             <table style="border: 1px solid grey;" class="table align-middle">
+                               <thead class="table-light">
+                                 <tr>
+<!--                                   <th><input class="form-check-input" type="checkbox"></th>-->
+                                   <th>ID</th>
+                                   <th>Category ID</th>
+                                   <th>Category Name</th>
+                                   <th>Name</th>
+<!--                                   <th>Description</th>-->
+<!--                                   <th>Slug</th>-->
+<!--                                   <th>Order</th>-->
+                                   <th>Action</th>
+                                 </tr>
+                               </thead>
+                               <tbody>
+                               {% for i in s %}
+
+                                 <tr>
+
+<!--                                   <td><input class="form-check-input" type="checkbox"></td>-->
+
+                                   <td>{{i.id}}</td>
+                                   <td>{{i.cat.id}}</td>
+                                   <td>{{i.cat.name}}</td>
+
+
+                                   <td>{{ i.name }}</td>
+
+<!--                                   <td>Some lorem ipsum</td>-->
+<!--                                   <td>/fashion</td>-->
+<!--                                   <td>54</td>-->
+                                   <td>
+                                    <div class="d-flex align-items-center gap-3 fs-6">
+<!--                                      <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+                                      <a href="/adminpanel/editsubcat/{{i.id}}/" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                      <a href="/adminpanel/deletesubcat/{{i.id}}/" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                    </div>
+                                   </td>
+
+                                 </tr>
+                                {% endfor %}
+<!--                                 <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#63524</td>-->
+<!--                                  <td>Jeans</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/jeans</td>-->
+<!--                                  <td>24</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#758426</td>-->
+<!--                                  <td>Shoes</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/shoes</td>-->
+<!--                                  <td>26</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#98653</td>-->
+<!--                                  <td>Electronics</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/electronics</td>-->
+<!--                                  <td>52</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#85426</td>-->
+<!--                                  <td>Furniture</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/furniture</td>-->
+<!--                                  <td>14</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#36867</td>-->
+<!--                                  <td>Mobiles</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/mobiles</td>-->
+<!--                                  <td>40</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#85697</td>-->
+<!--                                  <td>Women</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/women</td>-->
+<!--                                  <td>75</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#36758</td>-->
+<!--                                  <td>Kids Cloths</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/sids</td>-->
+<!--                                  <td>25</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#98620</td>-->
+<!--                                  <td>Sports</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/sports</td>-->
+<!--                                  <td>10</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                  <td><input class="form-check-input" type="checkbox"></td>-->
+<!--                                  <td>#84253</td>-->
+<!--                                  <td>Accessories</td>-->
+<!--                                  <td>Some lorem ipsum</td>-->
+<!--                                  <td>/accessories</td>-->
+<!--                                  <td>12</td>-->
+<!--                                  <td>-->
+<!--                                   <div class="d-flex align-items-center gap-3 fs-6">-->
+<!--                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
+<!--                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
+<!--                                   </div>-->
+<!--                                  </td>-->
+<!--                                </tr>-->
+                               </tbody>
+                             </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+</div>
+</div>
+{% endblock %}

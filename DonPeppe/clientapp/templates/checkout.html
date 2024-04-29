@@ -1,0 +1,351 @@
+{% extends 'hed2.html' %}
+{% load static %}
+{% block content %}
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .mb-3{
+      margin-top:25px
+      }
+      a:hover{
+      text-decoration:None;
+      }
+
+
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static '/css/abc.css' %}" rel="stylesheet">
+<div class="qodef-content">
+    <div class="container">
+  <div class="py-5 text-center">
+     <center>
+        <h1 style="margin-left:50px;color:white; letter-spacing: 50px; ">CHECKOUT</h1>
+     </center>
+<!--    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+<!--    <h2>Checkout form</h2>-->
+<!--    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>-->
+  </div>
+
+  <div style="margin-top:-5px;" class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span style="color: #b7903c;">Your cart</span>
+        <span style="color: #b7903c; background:1b1b1b;"  class="badge badge-secondary badge-pill">{{pay.count}}</span>
+      </h4>
+      <ul style="margin-top:50px;" class="list-group mb-3">
+         <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 style="font-family:Oswald; font-weight:500;" class="my-0">Product name</h6>
+
+          </div>
+            <div>
+            <h6 style="font-family:Oswald; font-weight:500;"  class="my-0">Quantity</h6>
+
+          </div>
+            <div>
+            <h6 style="font-family:Oswald; font-weight:500;"  class="my-0">Total</h6>
+          </div>
+
+        </li>
+
+
+
+        {% for i in pay %}
+
+           <input type="hidden" name="productd" value="{{i.productd.id}}">
+
+<!--                   <input type="text" name="price" value="{{total_amount}}">-->
+
+
+<!--         <input type="text" name="oder" value="{{i.oder.id}}">-->
+
+
+
+
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+
+            <small style="text-align: center;color: #b7903c; font-family: Oswald; font-size:18px; font-weight:300;">{{i.productd.proname}}</small>
+
+          </div>
+          <div>
+
+            <small style="text-align: center;color: #b7903c; font-family: Oswald; font-size:17px; font-weight:300;">{{i.quantity}}</small>
+
+          </div>
+          <span style="text-align: center;color: #b7903c; font-family: Oswald; font-size:18px; font-weight:300;">${{i.get_total_item_price}}</span>
+        </li>
+        {% endfor %}
+
+<!--        <li class="list-group-item d-flex justify-content-between lh-condensed">-->
+<!--          <div>-->
+<!--            <h6 class="my-0">Second product</h6>-->
+<!--            <small class="text-muted">Brief description</small>-->
+<!--          </div>-->
+<!--          <span class="text-muted">$8</span>-->
+<!--        </li>-->
+<!--        <li class="list-group-item d-flex justify-content-between lh-condensed">-->
+<!--          <div>-->
+<!--            <h6 class="my-0">Third item</h6>-->
+<!--            <small class="text-muted">Brief description</small>-->
+<!--          </div>-->
+<!--          <span class="text-muted">$5</span>-->
+<!--        </li>-->
+<!--        <li class="list-group-item d-flex justify-content-between bg-light">-->
+<!--          <div class="text-success">-->
+<!--            <h6 class="my-0">Promo code</h6>-->
+<!--            <small>EXAMPLECODE</small>-->
+<!--          </div>-->
+<!--          <span class="text-success">-$5</span>-->
+<!--        </li>-->
+        <li class="list-group-item d-flex justify-content-between">
+          <span style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:19px;">Total (USD)</span>
+          <strong style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:19px;">${{total_amount}}</strong>
+        </li>
+      </ul>
+
+<!--      <form class="card p-2">-->
+<!--        <div class="input-group">-->
+<!--          <input type="text" class="form-control" placeholder="Promo code">-->
+<!--          <div class="input-group-append">-->
+<!--            <button type="submit" class="btn btn-secondary" style="background-color: #d2401e; border-color: #d2401e;">Redeem</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 style="color: #b7903c;" class="mb-3">Billing address</h4>
+      <form method="post" action="/checkout/" >
+		  {% csrf_token %}
+<!--        <div class="row">-->
+<!--          <div class="col-md-6 mb-3">-->
+<!--            <label for="firstName">First name</label>-->
+<!--            <input type="text" name="name" class="form-control" id="firstName" placeholder="" value="{{p.name}}" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Valid first name is required.-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-6 mb-3">-->
+<!--            <label for="lastName">Last name</label>-->
+<!--            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Valid last name is required.-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+          {% for v in cr %}
+         <input type="hidden" name="cart" value="{{v.id}}">
+
+        {% endfor %}
+        <input type="hidden" name="customer" value="{{p1.id}}">
+        <input type="hidden" name="price" value="{{total_amount}}">
+
+<!--        <input type="text" name="oder" value="{{oder.id}}">-->
+
+
+
+
+
+
+        <div style="margin-top:40px;" class="mb-3">
+          <label style="color:white;font-family:Oswald; font-weight:500; font-size:15px;letter-spacing:2px;" for="username">Username</label>
+
+
+            <input style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:15px;letter-spacing:2px;border:2px solid #b7903c; width:80%;" type="text" class="form-control" name="name" id="username" placeholder="Username" required value="{{p1.name}}">
+            <div class="invalid-feedback" style="width: 100%;">
+              Your username is required.
+            </div>
+          </div>
+
+
+        <div class="mb-3">
+          <label style="color:white;font-family:Oswald; font-weight:500; font-size:15px;letter-spacing:2px;"  for="email">Email <span class="text-muted"></span></label>
+          <input style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:15px;letter-spacing:2px;border:2px solid #b7903c;width:80%;" type="email" class="form-control" id="email" name="email" value="{{p1.email}}" >
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="color:white;font-family:Oswald; font-weight:500; font-size:15px;letter-spacing:2px;"  for="address">Address</label>
+          <input style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:15px;letter-spacing:2px;border:2px solid #b7903c;width:80%;" type="text" class="form-control" id="address" placeholder="Address" required name="address" value="{{p1.address}}">
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="color:white;font-family:Oswald; font-weight:500; font-size:15px;letter-spacing:2px;"  for="address2">Contact</label>
+          <input style="color:#d2401c;font-family:Oswald; font-weight:500;font-size:15px;letter-spacing:2px;border:2px solid #b7903c; width:80%;" type="text" class="form-control" id="address2" placeholder="contact" name="contact" value="{{p1.contact}}">
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label style="color:white;font-family:Oswald; font-weight:500; font-size:15px;letter-spacing:2px;"  for="country">City</label>
+            <select style="background:transparent; color:#d2401c;font-family:Oswald; font-weight:500;font-size:15px;letter-spacing:2px;border:2px solid #b7903c;" class="form-control" id="country" name="city_id" required>
+              <option value="{{p1.id}}">{{p1.city_id.name}}</option>
+              <option></option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div>
+
+<!--          <div class="col-md-3 mb-3">-->
+<!--            <label for="zip">Zip</label>-->
+<!--            <input type="text" class="form-control" id="zip" value="{{p.city_id.pin}}" name="city_id" placeholder="" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Zip code required.-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+        <input type="hidden" value="COD" name="payment">
+
+<!--        <hr class="mb-4">-->
+<!--        <div class="custom-control custom-checkbox">-->
+<!--          <input type="checkbox" class="custom-control-input" id="same-address">-->
+<!--          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>-->
+<!--        </div>-->
+<!--        <div class="custom-control custom-checkbox">-->
+<!--          <input type="checkbox" class="custom-control-input" id="save-info">-->
+<!--          <label class="custom-control-label" for="save-info">Save this information for next time</label>-->
+<!--        </div>-->
+<!--        <hr class="mb-4">-->
+        <br><br>
+<center>
+        <h1 style="margin-left:290px;color:white; letter-spacing: 50px; width:600px; ">Payment</h1>
+</center>
+        <br><br>
+        <center>
+        <div class="d-block my-3">
+           <div style="margin-left:390px; width: 50%;background: white;" class="btn btn btn-sm" id="paypal-button-container"></div>
+
+          	<script src="https://www.paypal.com/sdk/js?client-id=AXHDLdV3QXZCGVgwrz8W1ttVgG5FJsEPDVFCq134-V34mAYPYQ-AgU1TyPreHe937Xz7k4hK-MhmahNQ&currency=USD&disable-funding=credit"></script>
+
+	<script>
+
+         var total = '{{ total_amount }}'
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+        	style: {
+                color:  'blue',
+                shape:  'rect',
+            },
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total
+
+                        }
+                    }]
+
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    submitFormData()
+                    window.location.replace("payment.html")
+
+                });
+            }
+
+        }).render('#paypal-button-container');
+    </script>
+
+
+
+
+
+
+
+
+
+<!--          <div class="custom-control custom-radio">-->
+<!--            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>-->
+<!--            <label class="custom-control-label" for="credit">Credit card</label>-->
+<!--          </div>-->
+<!--          <div class="custom-control custom-radio">-->
+<!--            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>-->
+<!--            <label class="custom-control-label" for="debit">Debit card</label>-->
+<!--          </div>-->
+<!--          <div class="custom-control custom-radio">-->
+<!--            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>-->
+<!--            <label class="custom-control-label" for="paypal">PayPal</label>-->
+<!--          </div>-->
+        </div>
+
+
+<!--        <div class="row">-->
+<!--          <div class="col-md-6 mb-3">-->
+<!--            <label for="cc-name">Name on card</label>-->
+<!--            <input type="text" class="form-control" id="cc-name" placeholder="" required>-->
+<!--            <small class="text-muted">Full name as displayed on card</small>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Name on card is required-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-6 mb-3">-->
+<!--            <label for="cc-number">Credit card number</label>-->
+<!--            <input type="text" class="form-control" id="cc-number" placeholder="" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Credit card number is required-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-3 mb-3">-->
+<!--            <label for="cc-expiration">Expiration</label>-->
+<!--            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Expiration date required-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-3 mb-3">-->
+<!--            <label for="cc-cvv">CVV</label>-->
+<!--            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--              Security code required-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <hr class="mb-4">-->
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit" style="width: 50%;margin-bottom: 70px;background-color: #d2401e; border-color: #d2401e; margin-left:390px; ">Place Order</button>
+         </center></form>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>-->
+<!--        <script src="https://getbootstrap.com/docs/4.3/examples/checkout/form-validation.js"></script></body>	-->
+
+{% endblock %}

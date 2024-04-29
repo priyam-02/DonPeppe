@@ -1,0 +1,305 @@
+{% extends 'hed2.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+.qodef-pl-image:hover {
+  -ms-transform: scale(1.05); /* IE 9 */
+  -webkit-transform: scale(1.05); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+
+ul.products>.product .qodef-pl-inner .qodef-pl-image img {
+  width:400px;
+  height:280px;
+}
+  .qodef-menu-area{
+  opacity:1;
+  }
+  .f{
+    font-size: 17px;
+    padding-inline: 9px;
+    border-radius: 5px;
+    background-color: #d14126;
+    color: white;
+    text-decoration:none;
+    border-color: #d14126;
+}
+.f1{
+     padding: 10px 25px;
+}
+a{
+text-decoration:none;
+color: white;
+}
+a:hover{
+text-decoration:none;
+color: white;
+}
+
+
+.page-item:not(:first-child) .page-link {
+    background-color: #d14126;
+    margin-left: -1px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+.page-item:first-child .page-link {
+    border-radius: 5px;
+    margin-left: 130px;
+    background-color: #d14126;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border: none;
+    color: white;
+}
+.page-item:not(:first-child) .page-link {
+    background-color: #d14126;
+    margin-left: -1px;
+    border: none;
+    color: white;
+}
+.pagination>li>a{
+margin:6px;
+font-size:18px;
+
+text-decoration:none;
+
+
+}
+.search-field{
+background-color:white;
+}
+
+</style>
+<div class="qodef-content" >
+  <div class="qodef-content-inner" >
+    <!--<div class="qodef-title-holder qodef-standard-type qodef-title-va-header-bottom qodef-preload-background qodef-has-bg-image qodef-bg-responsive-disabled" style="height: 290px;background-color: #1b1b1b;background-image:url(../wp-content/uploads/2019/12/title-pattern-img.png);" data-height="290">-->
+    <div class="qodef-title-image">
+    </div>
+  </div>
+    <div class="qodef-container-inner clearfix" >
+      <div class="qodef-grid-row qodef-grid-huge-gutter" style="margin-top:100px;">
+        <div class="qodef-page-content-holder qodef-grid-col-9 qodef-grid-col-push-3">
+          <div class="qodef-pl-main-holder">
+            <ul class="products columns-3">
+                {% for m in page.object_list %}
+
+              <li class="product type-product post-283 status-publish first instock product_cat-cheese product_cat-for-kids product_cat-light product_tag-yummy has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+
+                <div class="qodef-pl-inner">
+                  <div class="qodef-pl-image">
+                      <a href="/pd/{{m.id}}">
+                      <img
+
+                                                                    src="{% static 'assets/images/products/' %}{{m.pimg}}"
+                                                                    class="attachment-woocommerce_single size-woocommerce_thumbnail"
+                                                                    alt="m"
+                                                                    sizes="(max-width: 400px) 100vw, 400px"
+
+                      /></a>
+<!--                    <span class="qodef-onsale">-14%</span>-->
+<!--                    <img width="400" height="400" src="{% static 'assets/images/products/' %}{{m.pimg}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="m" https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/ sizes="(max-width: 400px) 100vw, 400px" />-->
+                  </div>
+                </div>
+
+
+                <div class="qodef-pl-text-wrapper">
+                  <h4  class="qodef-product-list-title" ><a style="color: #b7903c" href="/pd/{{m.id}}">{{m.proname}}</a></h4>
+
+                    <span class="price"><span class="woocommerce-Price-amount amount"></span><ins><span class="woocommerce-Price-amount amount">${{m.price}}</span></ins></span>
+                </div>
+                  <div class="qodef-pl-buttons">
+                  <button style="width:250px;" onclick="location.href='/pd/{{m.id}}'" class="f f1">View Item</button>
+                  </div>
+<!--                <div class="qodef-pl-buttons"><a href="index646c.html?add-to-cart=283" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="283" data-product_sku="01" aria-label="Add &ldquo;Bismarck&rdquo; to your cart" rel="nofollow">Add to cart</a><a href="#" class="button yith-wcqv-button" data-product_id="283">Quick View</a></div>-->
+
+
+              </li>
+                {% endfor %}
+
+
+
+            </ul>
+          </div>
+<!--            <h2>{{page.number}}/{{page.paginator.num_pages}}</h2>-->
+             <nav aria-label="Page navigation example" style="margin-top: -50px;margin-bottom: 50px;margin-left:200px;">
+
+                <ul class="pagination">
+                    {% if page.has_previous %}
+                    <li class="page-item"><a class="page-link" href="/menuf/?page={{page.previous_page_number}}">Previous</a></li>
+                    {% endif %}
+
+                    {% for n in page.paginator.page_range %}
+                    {% if page.number == n %}
+
+                    <li class="page-item"><a class="page-link active" href="/menuf/?page={{n}}" style="background-color:white;color:#d14126">{{n}}</a></li>
+
+                    {% else %}
+
+                    <li class="page-item"><a class="page-link" href="/menuf/?page={{n}}">{{n}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+
+
+<!--                    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                    {% if page.has_next %}
+                    <li class="page-item"><a class="page-link" href="/menuf/?page={{page.next_page_number}}">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+        <div class="qodef-sidebar-holder qodef-grid-col-3 qodef-grid-col-pull-9">
+          <aside class="qodef-sidebar">
+<!--            <div class="widget qodef-separator-widget">-->
+<!--              <div class="qodef-separator-holder clearfix  qodef-separator-center qodef-separator-normal">-->
+<!--                <div class="qodef-separator" style="border-color: transparent;border-style: solid;margin-top: -14px"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+                    <div class="widget woocommerce widget_products"></div>
+            <div class="widget woocommerce widget_product_categories">
+              <div class="qodef-widget-title-holder">
+                <h4 class="qodef-widget-title">categories</h4>
+
+              </div>
+<!--              <div class="container">-->
+			<div class="row">
+				<div  class="col-sm-3">
+					<div  class="left-sidebar">
+<!--						<h2>Category</h2>-->
+						<div class="panel-group category-products" id="accordian" style="height:200px; width:200px; border:none;"><!--category-productsr-->
+							{% for i in cat %}
+							<div class="panel panel-default"  style="background: url(https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/footer-img-2.jpg);">
+
+
+                                <div class="panel-heading"  style="background: url(https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/footer-img-2.jpg);">
+									<a id="" data-toggle="collapse" data-parent="#accordian" href="#{{i.id}}" style="color:white; text-decoration:none">
+                                    <h4 style="color: #b7903c;" class="panel-title">
+
+											<span style="color: #b7903c;" class="badge pull-right"><i class="fa fa-plus"></i></span>
+
+											{{i.name}}
+
+
+									</h4>
+                                    </a>
+								</div>
+								<div id="{{i.id}}" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											 {% for val in i.sub_set.all %}
+											<li><a style="color:#d2401c;" href="/menuc/{{val.id}}/" >{{val.name}} </a></li>
+											 {% endfor %}
+										</ul>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--						</div>&lt;!&ndash;/category-products&ndash;&gt;-->
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/price-range.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+
+
+
+
+<!--              <ul class="product-categories">-->
+<!--                  {% for i in cat %}-->
+<!--                <li class="cat-item cat-item-45"><a href="">{{i.name}}</a>-->
+
+<!--                    <ul>-->
+<!--           {% for val in i.sub_set.all %}-->
+<!--                <li ><a href="/menu/{{val.id}}/" class="">{{val.name}}</a></li>-->
+<!--            {% endfor %}-->
+
+
+
+<!--                    </ul>-->
+
+<!--                     </li>-->
+<!--                     {% endfor %}-->
+
+<!--                       </ul>-->
+
+
+
+<!--            <div class="widget qodef-separator-widget">-->
+<!--              <div class="qodef-separator-holder clearfix  qodef-separator-center qodef-separator-full-width">-->
+<!--                <div class="qodef-separator" style="border-color: #b7903c;border-style: dotted;width: 2px;border-bottom-width: 2px;margin-top: -30px"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+                <div class="f" style="margin-top:60px;">
+                </div>
+            <div class="widget woocommerce widget_price_filter">
+              <div class="qodef-widget-title-holder">
+                <h4 class="qodef-widget-title">Filter by price</h4>
+              </div>
+              <form method="get" action="/menuf/">
+                <div class="price_slider_wrapper">
+                  <div class="price_slider" style="display:none;"></div>
+                  <div class="price_slider_amount" data-step="10">
+                    <input type="text" id="min_price" name="min_price" value="0" data-min="0" placeholder="Min price" style="background-color:white;color: black; font-size: 17px;padding:14px; width:220px; border-radius: 20px;"/>
+                    <input type="text" id="max_price" name="max_price" value="100" data-max="100" placeholder="Max price" style="border-radius: 20px; background-color:white; color: black; font-size: 17px;padding:14px; width:220px"/>
+                    <button type="submit" class="button" style="padding-right: 42px;">Filter</button>
+                    <div class="price_label" style="display:none;">
+                      Price: <span class="from"></span> &mdash; <span class="to"></span>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+<!--                <div class="f" style="margin-top:40px;">-->
+<!--                </div>-->
+<!--            <div class="widget qodef-separator-widget">-->
+<!--              <div class="qodef-separator-holder clearfix  qodef-separator-center qodef-separator-full-width">-->
+<!--                <div class="qodef-separator" style="border-color: #b7903c;border-style: dotted;width: 2px;border-bottom-width: 2px;margin-top: -45px"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="widget woocommerce widget_product_search">
+              <div class="qodef-widget-title-holder">
+                <h4 class="qodef-widget-title">Search</h4>
+              </div>
+              <form role="search" method="GET" class="qodef-searchform woocommerce-product-search" action="/menuf/" >
+                <label class="screen-reader-text" style="backgorund-color:white">Search for:</label>
+                <div class="input-holder clearfix" style="backgorund-color:white">
+                  <input type="text" placeholder="Search Products..." value="" name="q" title="Search for:"  style="border-radius: 20px; background-color:white; color: black; font-size: 17px; padding:14px; width:220px"/>
+                  <button type="submit" class="qodef-search-submit" style="padding:20px 34px 0px;"><i class="qodef-icon-dripicons dripicon dripicons-search "></i></button>
+
+                </div>
+              </form>
+            </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

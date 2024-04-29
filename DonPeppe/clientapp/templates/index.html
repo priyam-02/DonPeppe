@@ -1,0 +1,651 @@
+{% extends 'hed2.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+	.show:hover ul.list-categories{
+  max-height: inherit;
+  opacity: 1;
+
+
+}
+
+<!--.show{-->
+<!--	margin-left: 50px;-->
+
+
+<!--}-->
+
+.anim4{
+    animation: slide4 2s;
+
+}
+@keyframes slide4{
+  0%{
+    opacity: 0
+  }
+  100%{
+    opacity: 1
+  }
+}
+
+	.list-categories{
+  list-style-type: circle;
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  max-height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 300ms ease;
+}
+
+</style>
+<div class="anim4">
+<a id='qodef-back-to-top' href='#'>
+<span class="qodef-icon-stack">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18" viewBox="0 0 18 23" enable-background="new 0 0 18 23" xml:space="preserve">
+<g>
+<path fill="#D2401E" d="M18,19.9c0-0.1,0-0.2-0.1-0.2c0-0.1,0-0.1-0.1-0.2c0-0.1-0.1-0.3-0.2-0.6l-0.3-0.8
+                            c-0.2-0.4-0.4-1.1-0.6-1.5L10.4,1.2C10.3,0.8,9.9,0,9.1,0C9.1,0,9,0,9,0c0,0-0.1,0-0.1,0C8.1,0,7.7,0.8,7.6,1.2L1.3,16.6
+                            c-0.2,0.4-0.4,1.1-0.6,1.5l-0.3,0.8c-0.1,0.3-0.2,0.5-0.2,0.6c0,0.1-0.1,0.1-0.1,0.2c0,0.1-0.1,0.2-0.1,0.3c-0.1,0.3,0,0.7,0.4,1.1
+                            c0.1,0,0.1,0.1,0.2,0.1c0.1,0.1,0.3,0.2,0.5,0.3C1.3,21.5,3.9,23,8.7,23c0.1,0,0.2,0,0.3,0c0.1,0,0.2,0,0.3,0
+                            c4.8,0,7.4-1.5,7.5-1.6c0.2-0.1,0.4-0.2,0.5-0.3c0.1-0.1,0.2-0.1,0.2-0.2C18,20.6,18,20.2,18,19.9z M10.8,4.9l1,2.5
+                            c-0.3,0.1-0.6,0.2-0.9,0c-0.3-0.1-0.6-0.3-0.8-0.7C10,6.5,9.9,6.1,10,5.8C10.2,5.4,10.4,5.2,10.8,4.9C10.7,5,10.8,5,10.8,4.9z
+                             M5.7,8.5C6.4,8.9,7,9.4,7.3,10.1c0.3,0.7,0.3,1.6,0,2.3c-0.3,0.8-0.9,1.3-1.6,1.7c-0.7,0.3-1.5,0.3-2.2,0L5.7,8.5z M3.1,15.1
+                            c1,0.4,2.1,0.4,3-0.1c1-0.4,1.8-1.2,2.2-2.2c0.4-1,0.4-2.1,0-3.1C7.8,8.7,7.1,8,6.1,7.6l2.4-6C8.7,1.3,8.8,1,8.9,1c0,0,0,0,0,0
+                            C8.9,1.1,9,1.1,9,1.1s0.1,0,0.1-0.1c0,0,0,0,0,0c0.1,0,0.2,0.2,0.4,0.6l1,2.4c-0.1,0-0.1,0-0.2,0c-0.6,0.3-1,0.8-1.2,1.4
+                            C8.8,6,8.9,6.7,9.2,7.2c0.3,0.6,0.8,1,1.4,1.2c0.5,0.2,1.1,0.2,1.7-0.1l3.5,8.6c0.1,0.3,0.3,0.8,0.5,1.2c-0.1,0-0.1,0-0.2,0
+                            c-0.1,0-6.4,3.3-14.2,0c0,0-0.1,0-0.1,0c0.2-0.4,0.4-0.9,0.5-1.2L3.1,15.1z M16.3,20.5c0,0-2.4,1.4-7,1.4c-0.1,0-0.2,0-0.3,0
+                            c-0.1,0-0.2,0-0.3,0c-4.6,0-7-1.4-7-1.4C1.3,20.3,1,20.1,1,20.1c0,0,0,0,0,0s0.1-0.3,0.3-0.7l0.1-0.1c0,0,0.1,0.1,0.1,0.1
+                            c4.3,1.8,8.2,1.7,10.6,1.3c2.7-0.4,4.4-1.3,4.4-1.4c0,0,0,0,0.1,0l0.1,0.1C16.8,19.7,17,20,17,20s0,0,0,0
+                            C17,20.1,16.7,20.3,16.3,20.5z" />
+<path fill="#D2401E" d="M11.2,18.4c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2s-2,0.9-2,2C9.3,17.5,10.1,18.4,11.2,18.4z M11.2,15.5
+                            c0.5,0,0.9,0.4,0.9,0.9c0,0.5-0.4,0.9-0.9,0.9s-0.9-0.4-0.9-0.9C10.3,15.9,10.7,15.5,11.2,15.5z" />
+</g>
+</svg> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18" viewBox="0 0 18 23" enable-background="new 0 0 18 23" xml:space="preserve">
+<g>
+<path fill="#D2401E" d="M18,19.9c0-0.1,0-0.2-0.1-0.2c0-0.1,0-0.1-0.1-0.2c0-0.1-0.1-0.3-0.2-0.6l-0.3-0.8
+                            c-0.2-0.4-0.4-1.1-0.6-1.5L10.4,1.2C10.3,0.8,9.9,0,9.1,0C9.1,0,9,0,9,0c0,0-0.1,0-0.1,0C8.1,0,7.7,0.8,7.6,1.2L1.3,16.6
+                            c-0.2,0.4-0.4,1.1-0.6,1.5l-0.3,0.8c-0.1,0.3-0.2,0.5-0.2,0.6c0,0.1-0.1,0.1-0.1,0.2c0,0.1-0.1,0.2-0.1,0.3c-0.1,0.3,0,0.7,0.4,1.1
+                            c0.1,0,0.1,0.1,0.2,0.1c0.1,0.1,0.3,0.2,0.5,0.3C1.3,21.5,3.9,23,8.7,23c0.1,0,0.2,0,0.3,0c0.1,0,0.2,0,0.3,0
+                            c4.8,0,7.4-1.5,7.5-1.6c0.2-0.1,0.4-0.2,0.5-0.3c0.1-0.1,0.2-0.1,0.2-0.2C18,20.6,18,20.2,18,19.9z M10.8,4.9l1,2.5
+                            c-0.3,0.1-0.6,0.2-0.9,0c-0.3-0.1-0.6-0.3-0.8-0.7C10,6.5,9.9,6.1,10,5.8C10.2,5.4,10.4,5.2,10.8,4.9C10.7,5,10.8,5,10.8,4.9z
+                             M5.7,8.5C6.4,8.9,7,9.4,7.3,10.1c0.3,0.7,0.3,1.6,0,2.3c-0.3,0.8-0.9,1.3-1.6,1.7c-0.7,0.3-1.5,0.3-2.2,0L5.7,8.5z M3.1,15.1
+                            c1,0.4,2.1,0.4,3-0.1c1-0.4,1.8-1.2,2.2-2.2c0.4-1,0.4-2.1,0-3.1C7.8,8.7,7.1,8,6.1,7.6l2.4-6C8.7,1.3,8.8,1,8.9,1c0,0,0,0,0,0
+                            C8.9,1.1,9,1.1,9,1.1s0.1,0,0.1-0.1c0,0,0,0,0,0c0.1,0,0.2,0.2,0.4,0.6l1,2.4c-0.1,0-0.1,0-0.2,0c-0.6,0.3-1,0.8-1.2,1.4
+                            C8.8,6,8.9,6.7,9.2,7.2c0.3,0.6,0.8,1,1.4,1.2c0.5,0.2,1.1,0.2,1.7-0.1l3.5,8.6c0.1,0.3,0.3,0.8,0.5,1.2c-0.1,0-0.1,0-0.2,0
+                            c-0.1,0-6.4,3.3-14.2,0c0,0-0.1,0-0.1,0c0.2-0.4,0.4-0.9,0.5-1.2L3.1,15.1z M16.3,20.5c0,0-2.4,1.4-7,1.4c-0.1,0-0.2,0-0.3,0
+                            c-0.1,0-0.2,0-0.3,0c-4.6,0-7-1.4-7-1.4C1.3,20.3,1,20.1,1,20.1c0,0,0,0,0,0s0.1-0.3,0.3-0.7l0.1-0.1c0,0,0.1,0.1,0.1,0.1
+                            c4.3,1.8,8.2,1.7,10.6,1.3c2.7-0.4,4.4-1.3,4.4-1.4c0,0,0,0,0.1,0l0.1,0.1C16.8,19.7,17,20,17,20s0,0,0,0
+                            C17,20.1,16.7,20.3,16.3,20.5z" />
+<path fill="#D2401E" d="M11.2,18.4c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2s-2,0.9-2,2C9.3,17.5,10.1,18.4,11.2,18.4z M11.2,15.5
+                            c0.5,0,0.9,0.4,0.9,0.9c0,0.5-0.4,0.9-0.9,0.9s-0.9-0.4-0.9-0.9C10.3,15.9,10.7,15.5,11.2,15.5z" />
+</g>
+</svg> </span>
+</a>
+
+<div class="qodef-content" style="margin-top: -164px">
+<div class="anim4 qodef-content-inner">
+<div class="qodef-full-width">
+<div class="qodef-full-width-inner">
+<div class="qodef-grid-row">
+<div class="qodef-page-content-holder qodef-grid-col-12">
+<div class="vc_row wpb_row vc_row-fluid qodef-content-aligment-center"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-one-column  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-9551" data-769-1024="90px 10% 52px" data-681-768="90px 10% 52px" data-680="50px 3%">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-9551" style="padding: 160px 0 36px">
+<div class="wpb_single_image wpb_content_element vc_align_center">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="856" height="341" src="{% static 'wp-content/uploads/2019/10/Frame-1.png' %}" alt="d" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><div class="qodef-row-grid-section-wrapper "><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1571839594314 vc_row-o-equal-height vc_row-flex"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-xs-12" id="banner"><div class="vc_column-inner vc_custom_1572533557287"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-one-column  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-3168" data-769-1024="0 0 18px 0" data-681-768="0 0 0 0" data-680="0 0 0 0">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-3168">
+<div class="qodef-banner-holder  qodef-visible-on-default qodef-banner-info-default" data-content-class="qodef-bn-custom-5823" data-1025-1399="65px 28% 0 11%" data-769-1024="63px 46% 0 9%" data-681-768="65px 34% 0 11%" data-680="19px 12% 0 8%">
+<div class="qodef-banner-image">
+<img width="1100" height="1105" src="{% static 'wp-content/uploads/2019/11/h5-img-11.jpg' %}" class="attachment-full size-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11.jpg 1100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-400x402.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-700x703.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-768x771.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/11/h5-img-11-1019x1024.jpg 1019w" sizes="(max-width: 1100px) 100vw, 1100px" /> </div>
+<div class="qodef-banner-text-holder qodef-bn-custom-5823" style="padding: 65px 37% 0 11%">
+<div class="qodef-banner-text-outer">
+<div class="qodef-banner-text-inner">
+<h1 class="qodef-banner-title" style="color: #ffffff">
+New in Store Pizza Meal </h1>
+<span class="qodef-banner-subtitle" style="color: #ffffff">
+We offer a wide range of meals for your youngest. </span>
+</div>
+</div>
+</div>
+<a itemprop="url" class="qodef-banner-link" href="/menuf/" target="_self"></a>
+<div class="qodef-banner-badge-holder">
+<div class="qodef-banner-badge-content">
+<sup class="qodef-banner-badge-currency">$</sup>
+<span class="qodef-banner-badge-price">12</span>
+<sup class="qodef-banner-badge-price-decimal">99</sup>
+</div>
+</div>
+</div> </div>
+</div>
+</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-xs-12"><div class="vc_column-inner vc_custom_1571842355187"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-two-columns  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-6102" data-681-768="18px 0 18px" data-680="18px 0 18px">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-6102" style="padding: 0 9px 18px 0">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+ <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-3.jpg' %}" class="vc_single_image-img attachment-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-3-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-5350" data-681-768="0 0 18px" data-680="0 0 18px">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-5350" style="padding: 0 0 18px 9px">
+<div class="qodef-banner-holder  qodef-visible-on-default qodef-banner-info-default" data-content-class="qodef-bn-custom-2692" data-681-768="11.9% 34% 0 12.9%" data-680="11.9% 0% 0 7.9%">
+<div class="qodef-banner-image">
+<img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-4-1.jpg' %}" class="attachment-full size-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-4-1-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /> </div>
+<div class="qodef-banner-text-holder qodef-bn-custom-2692" style="padding: 11.9% 0% 0 12.9%">
+<div class="qodef-banner-text-outer">
+<div class="qodef-banner-text-inner">
+<h2 class="qodef-banner-title">
+Hot summer Offers! </h2>
+</div>
+</div>
+</div>
+<a itemprop="url" class="qodef-banner-link" href="/menuf/" target="_self"></a>
+<div class="qodef-banner-badge-holder">
+<div class="qodef-banner-badge-content">
+<sup class="qodef-banner-badge-currency">$</sup>
+<span class="qodef-banner-badge-price">10</span>
+<sup class="qodef-banner-badge-price-decimal">99</sup>
+</div>
+</div>
+</div> </div>
+</div>
+</div></div><div class="qodef-elements-holder   qodef-two-columns  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-3971" data-681-768="0 0 18px" data-680="0 0 18px">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-3971" style="padding: 0 9px 0 0">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-5.jpg' %}" class="vc_single_image-img attachment-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-5-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-1893" data-681-768="0 0 0 0" data-680="0 0 0 0">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-1893" style="padding: 0 0 0 9px">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-6.jpg' %}" class="vc_single_image-img attachment-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-6-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div></div></div><div class="qodef-row-grid-section-wrapper "><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1571906952652"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="qodef-banner-holder  qodef-visible-on-default qodef-banner-info-default" data-content-class="qodef-bn-custom-3598" data-769-1024="55px 52% 0 8%" data-681-768="90px 43% 0 8%" data-680="7% 21% 0 8%">
+<div class="qodef-banner-image">
+<img width="1300" height="339" src="{% static 'wp-content/uploads/2019/10/h5-img-7.jpg' %}" class="attachment-full size-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7.jpg 1300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7-400x104.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7-700x183.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7-300x78.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7-768x200.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-7-1024x267.jpg 1024w" sizes="(max-width: 1300px) 100vw, 1300px" /> </div>
+<div class="qodef-banner-text-holder qodef-bn-custom-3598" style="padding: 80px 69% 0 7%">
+<div class="qodef-banner-text-outer">
+<div class="qodef-banner-text-inner">
+<h1 class="qodef-banner-title" style="color: #ffffff">
+Kids Menu </h1>
+<span class="qodef-banner-subtitle" style="color: #ffffff">
+We offer a wide range of meals for your youngest</span>
+</div>
+</div>
+</div>
+<a itemprop="url" class="qodef-banner-link" href="/menuf/" target="_self"></a>
+<div class="qodef-banner-badge-holder">
+<div class="qodef-banner-badge-content">
+<sup class="qodef-banner-badge-currency">$</sup>
+<span class="qodef-banner-badge-price">7</span>
+<sup class="qodef-banner-badge-price-decimal">99</sup>
+</div>
+</div>
+</div></div></div></div></div></div></div><div class="qodef-row-grid-section-wrapper "><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_row-o-equal-height vc_row-flex"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-xs-12"><div class="vc_column-inner vc_custom_1571841338394"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-two-columns  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-4207" data-769-1024="0 13px 18px 0" data-681-768="0 6px 18px 0" data-680="0 6px 18px 0">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-4207" style="padding: 0 9px 0 0">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-8.jpg' %}" class="vc_single_image-img attachment-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-8-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-6896" data-769-1024="0 6px 18px 6px" data-681-768="0 6px 18px 0px" data-680="0 6px 18px 0">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-6896" style="padding: 0 0 0 9px">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" src="{% static 'wp-content/uploads/2019/10/h5-img-9.jpg' %}" class="vc_single_image-img attachment-full" alt="d" srcset="https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9.jpg 800w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-400x400.jpg 400w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-100x100.jpg 100w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-700x700.jpg 700w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-150x150.jpg 150w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-300x300.jpg 300w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-768x768.jpg 768w, https://donpeppe.qodeinteractive.com/wp-content/uploads/2019/10/h5-img-9-650x650.jpg 650w" sizes="(max-width: 800px) 100vw, 800px" /></div>
+</figure>
+</div>
+</div>
+</div>
+</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-xs-12" id="banner-2"><div class="vc_column-inner vc_custom_1572533884977"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-two-columns  qodef-responsive-mode-680 ">
+    <img src="{% static 'wp-content/uploads/2019/10/h5-img-10.jpg' %}">
+
+
+
+</div></div></div></div>
+
+
+
+<div class="qodef-row-grid-section-wrapper qodef-content-aligment-center"><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1571907301896"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="qodef-elements-holder   qodef-one-column  qodef-responsive-mode-768 "><div class="qodef-eh-item    " data-item-class="qodef-eh-custom-9901" data-1025-1399="0 23%" data-769-1024="0 12%" data-681-768="0 3%" data-680="0 5%">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-9901" style="padding: 0 25%">
+<h2 class="qodef-custom-font-holder  qodef-cf-8922   " style="font-family: Open Sans;font-size: 18px;line-height: 28px;font-weight: 400;text-transform: initial;color: #b2b2b2" data-item-class="qodef-cf-8922">
+Don Peppe’s food is treated with love every step of the way - from picking the finest ingredients to doorstep delivery.</h2> </div>
+</div>
+</div></div><a itemprop="url" href="/menuf/" target="_self" class="qodef-btn qodef-btn-medium qodef-btn-solid">
+<span class="qodef-btn-text">Order Online</span>
+</a>
+<div class="wpb_text_column wpb_content_element  vc_custom_1577439027994">
+<div class="wpb_wrapper">
+<p><span style="font-size: 12px; color: #b2b2b2;">* Offers available for carry-out and delivery orders only</span></p>
+</div>
+</div>
+</div></div></div></div></div></div><div class="qodef-row-grid-section-wrapper "><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1574950963691"><div class="qodef-svg-sticker-holder qodef-svg-sticker-top-right"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 338 249" width="338" height="249" enable-background="new 0 0 338 249" xml:space="preserve" class="qodef-biker-svg">
+<g>
+<path fill="#EFAD73" d="M95.5,112.6c0,0,16.6,22.8,20.8,24.2c4.1,1.5,27.6-4.9,27.6-4.9l1.1-3.8l-24.6,0.1l-11-26.4L95.5,112.6z" />
+<path fill="#EFAD73" d="M145,128.1c0,0,4.8-0.5,6.9,1.8c2.1,2.2,1.3,5.7,0.4,6.2c-0.9,0.6-4.9-2.4-6.3-2.9
+		c-1.4-0.5-2.1-1.3-2.1-1.3L145,128.1z" />
+<polygon fill="#62ADD3" points="110.3,104.4 118.4,119.2 110.5,122.9 106.8,108.6 	" />
+<path fill="#FFFFFF" d="M133.9,212.5c-0.4,0.3-0.8,0.4-0.9,0.5l-0.1-0.3c0.6-0.3,1.7-0.9,1.8-1.3c0-0.1,0-0.1,0-0.2
+		c-0.3-0.4-1.8,0.1-2.7,0.6l-1.2,0.6l1-0.9c0.6-0.6,1.4-1.5,1.3-1.9c0,0,0-0.1-0.1-0.1c-0.7-0.2-1.4,1.3-1.6,1.9l-0.3-0.1
+		c0.1-0.2,0.9-2.4,2-2.1c0.3,0.1,0.3,0.2,0.4,0.4c0.1,0.4-0.3,1-0.8,1.5c0.8-0.3,1.8-0.6,2.3-0.1c0.1,0.1,0.2,0.3,0.1,0.5
+		C134.9,211.8,134.4,212.2,133.9,212.5z" />
+<polygon fill="#FCBD83" points="126.7,208.8 126.5,211.9 130.2,213.3 130.9,209.7 	" />
+<path fill="#EE5550" d="M130.8,210.5c0,0,1.2,1.7,3.3,2.2c2.2,0.5,5.4,1.3,6.7,2.3c1.3,1,1.6,2.3,1.6,2.3l-17-1.5l0.7-5.2
+		L130.8,210.5z" />
+<path fill="#F06662" d="M141,216.3c0,0-0.6-0.8-2.5-1.5c-1.9-0.7-9-2.8-10-2.8c-1-0.1-2.2-0.2-2.2-0.2l0,3.5L141,216.3z" />
+<path fill="#F04929" d="M57.6,188l-12.9-0.7l0.5-8.5c0.1-2.1,1.8-3.6,3.4-3.1l11.6,3.8L57.6,188z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#F15F38" d="M47.3,187.4l-1.6-0.1l0.5-8.7c0-0.4,0.4-0.8,0.8-0.8l0,0
+		c0.4,0,0.8,0.4,0.8,0.8L47.3,187.4z" />
+<ellipse transform="matrix(0.9653 0.2612 -0.2612 0.9653 65.447 -40.2252)" fill-rule="evenodd" clip-rule="evenodd" fill="#2B2E44" cx="184" cy="226.1" rx="19.8" ry="22" />
+<ellipse transform="matrix(0.969 0.2472 -0.2472 0.969 57.6388 -7.3539)" fill-rule="evenodd" clip-rule="evenodd" fill="#2B2E44" cx="58.1" cy="225.9" rx="20.3" ry="22" />
+<ellipse transform="matrix(0.969 0.2472 -0.2472 0.969 57.6393 -7.3539)" fill-rule="evenodd" clip-rule="evenodd" fill="#CAC9C7" cx="58.1" cy="225.9" rx="10.5" ry="11.4" />
+<path fill="#474A46" d="M135.8,236.6l-55.5-3.1c-4.8-0.3-8.5-4.4-8.2-9.2l0,0c0.3-4.8,4.4-8.5,9.2-8.2l55.5,3.1
+		c4.8,0.3,8.5,4.4,8.2,9.2v0C144.8,233.2,140.6,236.8,135.8,236.6z" />
+<polygon fill="#F58020" points="50.6,187.6 57.6,188 60.2,179.5 51.2,176.6 	" />
+<path fill="#F9A024" d="M21.6,213.1c0,0,17.8-36.7,55.4-36.1c37.6,0.6,39.3,3.4,39.3,3.4l-2.5,32.4L83.1,219L21.6,213.1z" />
+<path fill="#2A4921" d="M116.3,180.2l-51.8-2.9c-2.6-0.1-4.6-2.4-4.5-5l0.5-9.1c0.1-2.6,2.4-4.6,5-4.5l47,2.6
+		c2.6,0.1,4.6,2.4,4.5,5L116.3,180.2z" />
+<path fill="#38562B" d="M60.7,160.9l-0.4,6.8l56.5,3.1l0.4-6.8c0.1-1.4-1-2.5-2.3-2.6l-51.5-2.9C62,158.5,60.8,159.5,60.7,160.9z" />
+<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FCFCF9" cx="161.3" cy="126.7" r="7.7" />
+<circle fill-rule="evenodd" clip-rule="evenodd" fill="#C9C9C9" cx="162.3" cy="126.8" r="2.7" />
+<ellipse transform="matrix(0.9653 0.2612 -0.2612 0.9653 65.4467 -40.225)" fill-rule="evenodd" clip-rule="evenodd" fill="#CAC9C7" cx="184" cy="226.1" rx="10.3" ry="11.4" />
+<ellipse transform="matrix(0.9653 0.2612 -0.2612 0.9653 65.4473 -40.2253)" fill-rule="evenodd" clip-rule="evenodd" fill="#AEAEAE" cx="184" cy="226.1" rx="6.6" ry="7.4" />
+<ellipse transform="matrix(0.969 0.2472 -0.2472 0.969 57.6387 -7.3539)" fill-rule="evenodd" clip-rule="evenodd" fill="#474A46" cx="58.1" cy="225.9" rx="6.8" ry="7.4" />
+<path fill="#7A7A77" d="M104.1,235.5L77.8,234l0.2-3.3l26.2,1.5c0.9,0.1,1.6,0.8,1.6,1.7l0,0C105.8,234.8,105,235.5,104.1,235.5z" />
+<path fill="#F9A024" d="M145.8,233l-55.5-3.1c-4.8-0.3-8.5-4.4-8.2-9.2v0c0.3-4.8,4.4-8.5,9.2-8.2l55.5,3.1
+		c4.8,0.3,8.5,4.4,8.2,9.2l0,0C154.7,229.5,150.6,233.2,145.8,233z" />
+<path fill="#F58020" d="M35.2,214.9l-13.5-0.8c-1.3-0.1-2.2-1.2-2.2-2.4l0-0.2c0.1-1.3,1.2-2.2,2.4-2.2l13.5,0.8L35.2,214.9z" />
+<path fill="#F9A024" d="M154.9,225.4c0,0-13.2-9.1-26.7-10.2c14-2.4,20.7-13.2,23.9-27.5c4-18-7.5-47.1-7.5-47.1s6.1-4.2,11.5-0.9
+		c8.5,5.3,31.5,37.9,28.5,49.1C159.8,195.6,154.9,225.4,154.9,225.4z" />
+<path fill="#F9A024" d="M161.8,118c-4.9-0.3-9,3.5-9.3,8.3c-0.3,4.9,3.4,9,8.3,9.3L161.8,118z" />
+<path fill="#F9A024" d="M149.7,144.9L149.7,144.9c-3-0.2-5.3-2.7-5.1-5.8l0.6-10.4c0.2-3,2.7-5.3,5.8-5.1l0,0
+		c3,0.2,5.3,2.7,5.1,5.8l-0.6,10.4C155.3,142.8,152.7,145.1,149.7,144.9z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#E6E6E4" d="M186.7,229.5L186.7,229.5c-2.2,1.6-5.2,1.2-6.8-1l-15-20l7.8-5.8
+		l15,20C189.3,224.9,188.8,227.9,186.7,229.5z" />
+<path fill="#FCB435" d="M30.7,214.7c0,0,13.7-27.9,43.7-27.4c29.9,0.5,5.3,31.5,5.3,31.5L30.7,214.7z" />
+<path fill="#FCB435" d="M141.6,222.9l-43.5-2.4c-1.1-0.1-2-1-2-2.2l0,0c0.1-1.1,1-2,2.2-2l43.5,2.4c1.1,0.1,2,1,2,2.2l0,0
+		C143.8,222.1,142.8,223,141.6,222.9z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FCB435" d="M177.5,177.3c-0.1,2.5-2.3,4.5-4.8,4.3c-2.5-0.1-7.7-2.5-7.5-5
+		c0.1-2.5,5.5-4.3,8-4.1C175.7,172.6,177.6,174.7,177.5,177.3z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFC92B" d="M173.2,172.4l-0.5,9.2c2.5,0.1,4.7-1.8,4.8-4.3
+		C177.7,174.7,175.8,172.6,173.2,172.4z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#E7AF22" d="M173.1,175.5l-0.2,3c0.8,0,1.5-0.6,1.6-1.4
+		C174.5,176.3,173.9,175.6,173.1,175.5z" />
+<path opacity="0.5" fill="#F9AB94" d="M166.8,126.8l0.7,0c0.2-3.5-2.5-6.4-5.9-6.6l0,0.7C164.7,121.2,167,123.8,166.8,126.8z" />
+<circle fill="#FFFFFF" cx="167.2" cy="126.9" r="0.4" />
+<path opacity="0.5" fill="#FFFFFF" d="M153.8,126.1c0,0.2,0.2,0.5,0.4,0.5c0.2,0,0.5-0.2,0.5-0.4l0,0c0.2-3.6,3.3-6.4,6.9-6.2
+		l0-0.9C157.6,118.8,154.1,122,153.8,126.1z" />
+<g opacity="0.5">
+<path fill="#FFFFFF" d="M48.7,200.9c6.8-4.9,14.4-7.3,22.7-7.1c0.5,0,0.9,0,1.3,0c5.3,0.3,8.6,1.9,9.8,4.6
+			c0.6,1.3,0.7,2.8,0.5,4.4l2.1,0.1c0.2-2,0-3.8-0.7-5.3c-1.6-3.6-5.5-5.5-11.6-5.9c-0.5,0-0.9,0-1.4,0c-6.1-0.1-11.9,1.1-17.2,3.6
+			c-3,1.4-6,3.2-8.7,5.4L48.7,200.9z" />
+<circle fill="#FFFFFF" cx="84.1" cy="202.9" r="1.1" />
+</g>
+<path fill="#5B774E" d="M110.2,166.8l-44.8-2.5c-0.9,0-1.5-0.8-1.5-1.6l0,0c0-0.9,0.8-1.5,1.6-1.5l44.8,2.5c0.9,0,1.5,0.8,1.5,1.6
+		l0,0C111.8,166.2,111,166.9,110.2,166.8z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#F9A024" d="M38.2,202.9c-0.1,2.5,1.8,4.7,4.3,4.8c2.5,0.1,7.9-1.6,8-4.1
+		c0.1-2.5-5-4.9-7.5-5C40.5,198.5,38.3,200.4,38.2,202.9z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFC92B" d="M42.9,198.6l-0.5,9.2c-2.5-0.1-4.5-2.3-4.3-4.8
+		C38.2,200.4,40.4,198.4,42.9,198.6z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#F58020" d="M109.4,179.8c-9,0.2-12.6,6.7-13.1,15.8
+		c-0.5,8.2,4.9,15.9,12.5,18.1l7.3,0.1l0.2-33.6C116.3,180.2,113.3,180,109.4,179.8z" />
+<path fill="#FFFFFF" d="M172.9,173.2c-1-0.1-2.6,0.3-3.8,0.8c-0.1,0-0.2,0.2-0.2,0.3c0,0.2,0.1,0.4,0.4,0.4c0.1,0,0.1,0,0.2,0l0,0
+		c0,0,0,0,0,0c1.1-0.5,2.6-0.8,3.5-0.8c1.7,0.1,3,1.5,2.9,3.2c0,0,0,0,0,0c0,0.2,0.1,0.4,0.4,0.4c0.2,0,0.4-0.1,0.4-0.4h0l0,0
+		C176.7,175.1,175,173.3,172.9,173.2z" />
+<path fill="#FFFFFF" d="M43,199.5c1,0.1,2.5,0.6,3.7,1.2c0.1,0.1,0.2,0.2,0.2,0.4c0,0.2-0.2,0.4-0.4,0.4c-0.1,0-0.1,0-0.2,0l0,0
+		c0,0,0,0,0,0c-1.1-0.6-2.5-1.1-3.4-1.2c-1.7-0.1-3.1,1.2-3.2,2.9c0,0,0,0,0,0c0,0.2-0.2,0.4-0.4,0.4c-0.2,0-0.4-0.2-0.4-0.4l0,0v0
+		C39,201,40.9,199.4,43,199.5z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FCB435" d="M161.8,136.5L161.8,136.5c-0.7,0-1.2-0.6-1.1-1.3l1-17.1
+		c0-0.7,0.6-1.2,1.3-1.1l0,0c0.7,0,1.2,0.6,1.1,1.3l-1,17.1C163,136,162.4,136.5,161.8,136.5z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M185.3,225.4L185.3,225.4c-0.7,0.5-1.7,0.4-2.2-0.3l-10.3-14
+		c-0.5-0.7-0.4-1.7,0.3-2.2v0c0.7-0.5,1.7-0.4,2.2,0.3l10.3,14C186.2,223.9,186,224.9,185.3,225.4z" />
+<path fill="#F9A024" d="M177.6,210.8c4.3,0.2,30.2,1.7,30.2,1.7c-2.6-10.8-11.3-19.2-22.8-19.8c-27.4-1.5-29,33-28.9,33.8
+		C164.8,228,167.5,210.6,177.6,210.8z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#F58020" d="M184.9,211.2l22.9,1.3c-1-4.2-3-8.1-5.7-11.3c-0.1,0-0.3,0-0.4,0
+		C194.4,200.7,187.8,204.9,184.9,211.2z" />
+<path opacity="0.5" fill="#FFFFFF" d="M205.2,210.8c-1-2.9-2.6-5.5-4.6-7.8c-2-2.3-4.5-4.1-7.2-5.5c-2.7-1.3-5.6-2.1-8.6-2.3
+		c-0.6,0-1,0.4-1.1,1c0,0.6,0.4,1,1,1.1c0.1,0,0.1,0,0.2,0c8.9,0.8,16.1,6.9,18.7,15l2.1,0.1C205.5,211.8,205.4,211.3,205.2,210.8z" />
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#E7AF22" d="M42.8,201.7l-0.2,3c-0.8,0-1.4-0.7-1.4-1.6
+		C41.2,202.3,41.9,201.6,42.8,201.7z" />
+<path fill="#7A7A77" d="M73,235.5l-22.4-1.2c-3.6-0.2-6.4-3.3-6.2-6.9l0-0.6c0.2-3.6,3.3-6.4,6.9-6.2l22.4,1.2
+		c3.6,0.2,6.4,3.3,6.2,6.9l0,0.6C79.7,232.9,76.7,235.7,73,235.5z" />
+<rect x="42" y="224.5" transform="matrix(0.9985 5.561012e-002 -5.561012e-002 0.9985 12.6465 -2.0873)" fill="#7A7A77" width="3.7" height="3.3" />
+<path fill="#C0BFBF" d="M76.3,226.5L48.4,225c-0.7,0-1.3-0.7-1.3-1.4l0,0c0-0.7,0.7-1.3,1.4-1.3l27.9,1.6c0.7,0,1.3,0.7,1.3,1.4
+		l0,0C77.7,226,77.1,226.6,76.3,226.5z" />
+<circle fill-rule="evenodd" clip-rule="evenodd" fill="#5B2618" cx="149.9" cy="127.8" r="3.1" />
+<path fill="#F58020" d="M144.7,140.7c0,0,14,15.8,12.4,41.3c-1.6,25.5-14.1,32.8-21,33.1c-6.9,0.2-11.7-0.5-11.7-0.5
+		s25-6.8,27.6-28.4C155.2,159.2,145,151.1,144.7,140.7z" />
+<path fill="#F58020" d="M181.9,192.6c0,0-12,0-18.8,10.8c-4.9,7.8-6.3,16.8-6.3,16.8s2.6-10.5,10.5-19
+		C174.2,193.7,181.9,192.6,181.9,192.6z" />
+<rect x="5.5" y="153.8" fill="#FCBD83" width="52" height="7.3" />
+<rect x="11.5" y="145.4" fill="#FCBD83" width="52" height="7.3" />
+<polygon fill="#FCBD83" points="59.3,143.6 7.3,144.5 7.2,137.2 59.2,136.3 	" />
+<polygon fill="#FCBD83" points="66.3,134.9 14.4,135.8 14.3,128.4 66.2,127.5 	" />
+<polygon fill="#FCBD83" points="61.1,126.7 9.2,125.6 9.3,118.3 61.2,119.4 	" />
+<polygon fill="#FCBD83" points="57,117.9 5,116.9 5.1,109.5 57.1,110.6 	" />
+<path fill="#F9A024" d="M60.2,164.7H3.7c-0.9,0-1.7-0.7-1.7-1.7v-0.2c0-0.9,0.7-1.7,1.7-1.7h56.5V164.7z" />
+<polygon fill="#F9A024" points="15.7,164 44.3,190.6 42.8,191.7 12.7,164.7 	" />
+<polygon fill="#FDC79A" points="10.4,118.7 57.6,120.1 57.9,122.9 10.4,122.5 	" />
+<polygon fill="#FDC79A" points="15.3,129.2 62,128.4 62.4,132.4 15.3,132.4 	" />
+<polygon fill="#FDC79A" points="7.6,138.2 51.9,137.1 52.8,141.3 8.1,142.1 	" />
+<polygon fill="#FDC79A" points="12.4,146.1 12.4,149.4 58.4,150.6 59.3,146.5 	" />
+<polygon fill="#FDC79A" points="6.7,155.3 6.7,158.1 52,158.9 51.3,154.7 	" />
+<polygon fill="#FDC79A" points="6.3,110.5 50.5,111.2 51,115.2 6.3,114.2 	" />
+<path fill="#BC2626" d="M86.3,150.9c0,0-2,8.1,4.1,9.3c6.1,1.3,42,5,42,5l-6.6,44.5l5.7,0.6c0,0,19.3-41.3,18-50.1
+		c-1.3-8.8-36.6-12.3-36.6-12.3l-10.7-0.6L86.3,150.9z" />
+<path fill="#FFFFFF" d="M122.9,210.3c-0.4,0.3-0.8,0.4-0.9,0.5l-0.1-0.3c0.6-0.3,1.7-0.9,1.8-1.3c0-0.1,0-0.1,0-0.2
+		c-0.3-0.4-1.8,0.1-2.7,0.6l-1.2,0.6l1-0.9c0.6-0.6,1.4-1.5,1.3-1.9c0,0,0-0.1-0.1-0.1c-0.7-0.2-1.4,1.3-1.6,1.9L120,209
+		c0.1-0.2,0.9-2.4,2-2.1c0.3,0.1,0.3,0.2,0.4,0.4c0.1,0.4-0.3,1-0.8,1.5c0.8-0.3,1.8-0.6,2.3-0.1c0.1,0.1,0.2,0.3,0.1,0.5
+		C123.9,209.6,123.4,210,122.9,210.3z" />
+<polygon fill="#FCBD83" points="115.7,206.6 115.5,209.7 119.2,211.1 119.9,207.5 	" />
+<path fill="#FCBD83" d="M138.9,77.8c0,0-0.5,13.5-1.7,20.5c-0.9,5.3-13.5-1-13.5-1l-10.5,6.6l-5.6-7.3l10.9-11.4l7.8-12.4
+		L138.9,77.8z" />
+<path fill="#F04929" d="M79.5,150.3c0,0-2,8.1,4.1,9.3c6.1,1.3,46.5,7.1,46.5,7.1L114.7,207l5.7,0.6c0,0,27-38.5,25.7-47.3
+		c-1.3-8.8-40-12.9-40-12.9l-10.7-0.6L79.5,150.3z" />
+<path fill="#FCFCF9" d="M109.9,94c0,0-20.5-0.9-29.9,22.9c-7.6,19.3-0.9,34.8-0.9,34.8l26.9-4.3c0,0-0.2-16,1.6-22.7
+		c2.9-10.6,9.6-16,9.9-22.7C117.9,95.9,109.9,94,109.9,94z" />
+<path fill="#EE5550" d="M119.8,208.3c0,0,1.2,1.7,3.3,2.2c2.2,0.5,5.4,1.3,6.7,2.3c1.3,1,1.6,2.3,1.6,2.3l-17-1.5l0.7-5.2
+		L119.8,208.3z" />
+<path fill="#F06662" d="M130,214.1c0,0-0.6-0.8-2.5-1.5c-1.9-0.7-9-2.8-10-2.8c-1-0.1-2.2-0.2-2.2-0.2l0,3.5L130,214.1z" />
+<path fill="#FCBD83" d="M138,84.9c0,0,4.3,4.6,3.4,6.5c-0.9,1.9-6.3,1.7-6.3,1.7L138,84.9z" />
+<path fill="#FCBD83" d="M100.8,108.1c0,0,17.5,25.8,21.7,27c5,1.5,26.2-4.5,26.2-4.5l1.6-3.9l-26.1-0.4L110.7,100L100.8,108.1z" />
+<path fill="#7F421C" d="M116.3,84.4c0,0,3.7-11.7,6.3-12.7c2.6-1,15.6-0.7,16.7,2c1.1,2.7-2.7,2.5-6.5,3.9
+		c-3.8,1.4-4.6-0.6-8.1-0.5c-3.5,0.2-3.3,6.6-5.4,7.4C117.3,85.4,116.3,84.4,116.3,84.4z" />
+<path fill="#F15848" d="M106,149.4c0,0,33.3,5,35.8,9.1c0.6,0.9-36.8-0.1-42.9-4.1C92.9,150.5,106,149.4,106,149.4z" />
+<path fill="#FCFCF9" d="M117.1,99.3l5,16l-11.6,9.9c0,0-12.8-15.4-12.7-15.8c0.1-0.4,4.1-11.7,4.1-11.7L117.1,99.3z" />
+<path fill="#F7B177" d="M138.6,83.9c0,0-6.4-2-9.1-0.7c-2.7,1.3-4.7,8.6-4.7,8.6s-0.7-13.9-0.2-13.9s7.6-0.5,7.7-0.5
+		c0.1,0,3.6,1.2,4.2,1.6c0.6,0.4,2.5,1.4,2.5,1.4L138.6,83.9z" />
+<path fill="#F7B177" d="M115.9,87.4l-2.8,3.3c0,0,1.4,2.1,5.8,3.1c4.3,1,6.1-2,6.1-2l-8.4-4.8L115.9,87.4z" />
+<path fill="#5B2618" d="M126,91.8c0,0,0.2,2.8,1.9,5.1c1.7,2.4,3.9,3.3,3.9,3.3s-3.2,0-3.9-0.2c-0.7-0.2-4.2-6.6-4.2-6.6L126,91.8z
+		" />
+<path fill="#F9A024" d="M124.9,92.5c-3,1.5-9.8,0.9-13.7-9.1c-3.9-10.1-1.4-19.9,11.9-21.1c17.6-1.6,19.8,11.3,19.1,16.3
+		c-0.8,5.3-11.5,1.5-14.3,2.1C125,81.2,127.9,91.1,124.9,92.5z" />
+<path fill="#F58020" d="M142.4,77.1c0,0-0.8,2.2-3.1,2.7c-2.3,0.6-9.9-2.3-12.8-0.2s-0.5,10.8-2.2,12.2c-1.7,1.4-4.3,0.8-4.3,0.8
+		s3.4,1.5,5.1,0.4c3.6-2.2,0.6-9.7,2.9-11.4c2.3-1.8,8.6,1.3,11.6,0.8C142.5,81.9,143.1,79,142.4,77.1z" />
+<ellipse transform="matrix(0.9491 -0.3149 0.3149 0.9491 -21.4487 47.0048)" fill="#FDC79A" cx="134.7" cy="89.9" rx="1.8" ry="3.1" />
+<path fill="#9A4522" d="M134.6,96.9c-2.2,0-3.4-1.2-4-2.1c-0.7-1-0.9-2.1-0.9-2.1l0.7-0.1l-0.3,0.1l0.3-0.1c0,0.2,0.7,3.7,4.3,3.7
+		V96.9z" />
+<path fill="#5B2618" d="M127,83.9c0.7,0,13.6,0,13.6,0l-0.7,5.8h-1l0.2-4.3L127,85.2L127,83.9z" />
+<ellipse transform="matrix(0.8994 0.4371 -0.4371 0.8994 43.9577 -50.311)" opacity="0.2" fill="#FFFFFF" cx="131.3" cy="70.4" rx="8.3" ry="5.2" />
+<path fill="#FCBD83" d="M154.4,128.7c0,4.7-4,2.3-6.3,2.3s-2,0-2-2.3c0-2.3,1.9-4.2,4.2-4.2C152.5,124.5,154.4,126.4,154.4,128.7z" />
+<path fill="#5B2618" d="M152.1,128.5c0.9,2.1-1.1,4-3.2,3.2c-0.5-0.2-1-0.7-1.2-1.2c-0.9-2.1,1.1-4,3.2-3.2
+		C151.4,127.5,151.9,127.9,152.1,128.5z" />
+<path fill="#F7B177" d="M119.6,117.4l0.7,1.6c0,0-3.3,3.5-4.1,5.5s-1,3.3-1,3.3l-3.1-3.9L119.6,117.4z" />
+<path fill="#EDEDED" d="M191.6,206.2c0,0,3.7,3,6.4,7.7c2.7,4.7,3.1,8.1,3.1,8.1s0-4.1-2.3-8.6
+		C196.4,208.9,191.6,206.2,191.6,206.2z" />
+<path fill="#EDEDED" d="M72.2,232.2c0,0-2.5,4-6.8,7.3c-4.3,3.3-7.7,4.1-7.7,4.1s4.1-0.5,8.2-3.4C70,237.3,72.2,232.2,72.2,232.2z" />
+<path fill="#FFFFFF" d="M84.1,143.8c0,0-16.8-1.7-24.7-1.7c-9.7-0.1-18.7,0.7-18.7,0.7L84.1,143.8z" />
+</g>
+</svg></div><div style="background: #b7903c; width:1300px; margin-left:50px; margin-top:5px;" class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div></div></div></div><div class="qodef-row-grid-section-wrapper qodef-content-aligment-center" style="background-color:transparent;"><div class="qodef-row-grid-section"><div class="vc_row wpb_row vc_row-fluid qodef-faux-footer vc_custom_1578662748789"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_center">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="152" height="105" src="{% static 'wp-content/uploads/2019/11/logo-side-area.png' %}" class="vc_single_image-img attachment-full" alt="i"/></div>
+</figure>
+</div>
+<div class="qodef-elements-holder   qodef-one-column  qodef-responsive-mode-768 "><div class="qodef-eh-item   qodef-horizontal-alignment-center " data-item-class="qodef-eh-custom-8534" data-769-1024="11px 23% 4px" data-681-768="11px 14% 4px" data-680="11px 15% 4px">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-8534" style="padding: 11px 19% 4px; margin-left: 90px;">
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1578584257724 qodef-content-aligment-center"><div class="wpb_column vc_column_container vc_col-sm-2 vc_col-lg-2 vc_col-md-2 vc_col-xs-4"><div class="vc_column-inner vc_custom_1578585222017"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element">
+<div class="wpb_wrapper">
+<p style="text-align: center;"><a href="/index/"><span style="font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">Home</span></a></p>
+</div>
+</div>
+</div></div></div>
+
+
+
+
+
+
+
+<div class="wpb_column vc_column_container vc_col-sm-2 vc_col-lg-2 vc_col-md-2 vc_col-xs-4"><div class="vc_column-inner vc_custom_1578585242545"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p style="text-align: center;"><a href="/menuf/"><span style="margin-right: 30px; font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">Menu</span></a></p>
+</div>
+</div>
+</div></div></div>
+<div class="wpb_column vc_column_container vc_col-sm-2 vc_col-lg-2 vc_col-md-2 vc_col-xs-4"><div class="vc_column-inner vc_custom_1578585266690"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p style="text-align: center;"><a href="/booktable/"><span style="margin-right: 20px; font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">Reservation</span></a></p>
+</div>
+</div>
+</div></div></div>
+<div class="wpb_column vc_column_container vc_col-sm-2 vc_col-lg-2 vc_col-md-2 vc_col-xs-4"><div class="vc_column-inner vc_custom_1578585242545"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p style="text-align: center;"><a href="/contact/"><span style="margin-left: 40px;  font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">Contact Us</span></a></p>
+</div>
+</div>
+</div></div></div>
+
+<div class="wpb_column vc_column_container vc_col-sm-2 vc_col-lg-2 vc_col-md-2 vc_col-xs-4"><div class="vc_column-inner vc_custom_1578585232144"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<div class="show"><p style="text-align: center;"><a href="#"><span style="margin-left: 50px; font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">About Us</span>
+</a>
+</p><ul class="list-categories" style="margin-left: 50px; width: 250px; text-align: left; font-family: Oswald,sans-serif; font-size: 12px; line-height: 35px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;">
+  <span>
+	  <li><a href="/service/">Our Services</a></li>
+  <li><a href="/team/">Our Team</a></li>
+  <li><a href="/history/">Our History</a></li>
+  </span>
+</ul></div>
+</div>
+
+</div>
+</div>
+</div></div></div>
+
+
+</div> </div>
+
+
+
+</div>
+</div></div>
+	<div class="qodef-elements-holder   qodef-one-column  qodef-responsive-mode-768 "><div class="qodef-eh-item   qodef-horizontal-alignment-center " data-item-class="qodef-eh-custom-2942" data-1025-1399="0px 27% 0" data-769-1024="0px 16% 0" data-681-768="0px 8%" data-680="0px 0%">
+<div class="qodef-eh-item-inner">
+<div class="qodef-eh-item-content qodef-eh-custom-2942" style="padding: 0px 27%">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p style="text-align: center; font-size: 18px; line-height: 28px;"><span style="color: #b7903c;">The Don Peppe crew first and foremost values an authentic, freshly prepared food.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div></div></div>
+<div class="vc_row wpb_row vc_row-fluid vc_custom_1578644028970 vc_row-has-fill qodef-content-aligment-center"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1571652168964"><div class="wpb_wrapper"> <span class="qodef-icon-shortcode qodef-normal   " style="margin: 0 9px 0 0" data-hover-color="#00B6F1" data-color="#ffffff">
+<a itemprop="url" class="" href="https://twitter.com/" target="_blank"><br>
+<span aria-hidden="true" class="qodef-icon-font-elegant social_twitter qodef-icon-element" style="color: #ffffff;font-size:15px"></span> </a>
+</span>
+<span class="qodef-icon-shortcode qodef-normal   " style="margin: 0 9px 0 0" data-hover-color="#3B5998" data-color="#ffffff">
+<a itemprop="url" class="" href="https://www.facebook.com/" target="_blank"><br>
+<span aria-hidden="true" class="qodef-icon-font-elegant social_facebook qodef-icon-element" style="color: #ffffff;font-size:15px"></span> </a>
+</span>
+<span class="qodef-icon-shortcode qodef-normal   " style="margin: 0 9px 0 0" data-hover-color="#e1306c" data-color="#ffffff">
+<a itemprop="url" class="" href="https://www.instagram.com/" target="_blank"><br>
+<span aria-hidden="true" class="qodef-icon-font-elegant social_instagram qodef-icon-element" style="color: #ffffff;font-size:15px"></span> </a>
+</span>
+<span class="qodef-icon-shortcode qodef-normal   " style="margin: 0 0px 0 0" data-hover-color="#04669A" data-color="#ffffff">
+<a itemprop="url" class="" href="https://www.linkedin.com/" target="_blank"><br>
+<span aria-hidden="true" class="qodef-icon-font-elegant social_linkedin qodef-icon-element" style="color: #ffffff;font-size:15px"></span> </a>
+</span>
+<div class="vc_empty_space" style="height: 66px"><span class="vc_empty_space_inner"></span></div><div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_dotted vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text"><span class="vc_sep_holder vc_sep_holder_l"><span style="border-color:#544119;" class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span style="border-color:#544119;" class="vc_sep_line"></span></span>
+</div><div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
+<div class="wpb_text_column wpb_content_element ">
+</div>
+</div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<section class="qodef-side-menu">
+<a class="qodef-close-side-menu qodef-close-side-menu-svg-path" href="#">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="qodef-svg-close-icon" x="0px" y="0px" width="18" viewBox="0 0 18 18" enable-background="new 0 0 18 18" xml:space="preserve">
+<g>
+<path d="M17.5,15.3c0.7,0.7,0.7,1.5,0,2.2c-0.3,0.3-0.7,0.5-1.1,0.5c-0.4,0-0.8-0.2-1.1-0.5L9,11.2l-6.3,6.3C2.4,17.8,2,18,1.6,18
+		c-0.4,0-0.7-0.2-1.1-0.5c-0.7-0.7-0.7-1.4,0-2.2L6.8,9L0.5,2.7c-0.7-0.7-0.7-1.5,0-2.2c0.7-0.7,1.4-0.7,2.2,0L9,6.8l6.3-6.3
+		c0.7-0.7,1.5-0.7,2.2,0c0.7,0.7,0.7,1.4,0,2.2L11.2,9L17.5,15.3z" />
+</g>
+</svg> </a>
+<div id="media_image-3" class="widget qodef-sidearea widget_media_image"><a href="../index.html"><img width="160" height="69" src="../wp-content/uploads/2019/10/logo-side-area.png" class="image wp-image-789  attachment-full size-full" alt="u" style="max-width: 100%; height: auto;" /></a></div><div class="widget qodef-separator-widget"><div class="qodef-separator-holder clearfix  qodef-separator-center qodef-separator-normal">
+<div class="qodef-separator" style="border-color: rgb(255,255,255,0);border-style: solid;margin-bottom: -5px"></div>
+</div>
+</div><div id="text-6" class="widget qodef-sidearea widget_text"> <div class="textwidget"><h1><span style="color: #fff; letter-spacing: 1px;">find</span></h1>
+<h3><span style="color: #fff; line-height: 30px;">don peppe’s<br />
+location near</span></h3>
+<p><span style="color: #b2b2b2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt, nisl et aliquet molestie, mi orci tincidunt velit.</span></p>
+</div>
+</div> <div class="widget qodef-contact-form-7-widget ">
+<div role="form" class="wpcf7" id="wpcf7-f790-o2" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="https://donpeppe.qodeinteractive.com/pizza-dark/#wpcf7-f790-o2" method="post" class="wpcf7-form cf7_custom_style_1" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="790" />
+<input type="hidden" name="_wpcf7_version" value="5.1.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f790-o2" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+</div>
+<div class="qodef-cf-form-newsletter">
+<div class="qodef-grid-row edgtf-grid-normal-gutter">
+<div class="qodef-grid-col-12"><span class="wpcf7-form-control-wrap email-21"><input type="email" name="email-21" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Address" /></span></div>
+<div class="qodef-grid-col-12">
+<div class="qodef-cf-nw-btn"><button type="submit" class="wpcf7-form-control wpcf7-submit cf-button qodef-btn qodef-btn-medium qodef-btn-solid"><span class="qodef-btn-text">Sign up</span></button></div>
+</div>
+</div>
+</div>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div> </div>
+<div id="text-8" class="widget qodef-sidearea widget_text"> <div class="textwidget"><p><span style="color: #b2b2b2;">Or call us and order in:</span></p>
+<h3><a href="tel:3810656666666"><span style="color: #fff;">+381 065 666 6666</span></a></h3>
+</div>
+</div></section><div class="rbt-toolbar" data-theme="Don Peppe" data-featured="" data-button-position="70%" data-button-horizontal="right" data-button-alt="no"></div>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4XZBMN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="yith-quick-view-modal">
+<div class="yith-quick-view-overlay"></div>
+<div class="yith-wcqv-wrapper">
+<div class="yith-wcqv-main">
+<div class="yith-wcqv-head">
+<a href="#" id="yith-quick-view-close" class="yith-wcqv-close">X</a>
+</div>
+<div id="yith-quick-view-content" class="woocommerce single-product"></div>
+</div>
+</div>
+</div><script type="text/html" id="wpb-modifications"></script> <script type="text/javascript">
+		var c = document.body.className;
+		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+		document.body.className = c;
+	</script>
+
+<link rel="stylesheet" href="{% static 'wp-content/cache/minify/763d5.css' %}" media="all" />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/donpeppe.qodeinteractive.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/0fef6.js' %}"></script>
+<script type='text/javascript' src='../../export.qodethemes.com/_toolbar/assets/js/rbt-modulescd2e.js?ver=5.3.12'></script>
+<script src="{% static 'wp-content/cache/minify/85fdd.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tt_config = [];
+tt_config = {"ajaxurl":"https:\/\/donpeppe.qodeinteractive.com\/wp-admin\/admin-ajax.php"};;
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/695be.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/63a69.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_1c700cd296adda22c216b66b080df61c","fragment_name":"wc_fragments_1c700cd296adda22c216b66b080df61c","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/b4041.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var yith_qv = {"ajaxurl":"\/wp-admin\/admin-ajax.php","loader":"https:\/\/donpeppe.qodeinteractive.com\/wp-content\/plugins\/yith-woocommerce-quick-view\/assets\/image\/qv-loader.gif","is2_2":"","lang":""};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/27b55.js' %}"></script>
+<script type='text/javascript'>
+var mejsL10n = {"language":"en","strings":{"mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen-off":"Turn off Fullscreen","mejs.fullscreen-on":"Go Fullscreen","mejs.download-video":"Download Video","mejs.fullscreen":"Fullscreen","mejs.time-jump-forward":["Jump forward 1 second","Jump forward %1 seconds"],"mejs.loop":"Toggle Loop","mejs.play":"Play","mejs.pause":"Pause","mejs.close":"Close","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.time-skip-back":["Skip back 1 second","Skip back %1 seconds"],"mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.mute-toggle":"Mute Toggle","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.ad-skip":"Skip ad","mejs.ad-skip-info":["Skip in 1 second","Skip in %1 seconds"],"mejs.source-chooser":"Source Chooser","mejs.stop":"Stop","mejs.speed-rate":"Speed Rate","mejs.live-broadcast":"Live Broadcast","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script src="{% static 'wp-content/cache/minify/864c2.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/4c82a.js' %}"></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script src="{% static 'wp-content/cache/minify/0f313.js' %}"></script>
+<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?key=AIzaSyBHS3I-CJN5_G9cZhKnjcqiFRZT52Rt_UU&amp;ver=5.3.12'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var qodefGlobalVars = {"vars":{"qodefAddForAdminBar":0,"qodefElementAppearAmount":-100,"qodefAjaxUrl":"https:\/\/donpeppe.qodeinteractive.com\/wp-admin\/admin-ajax.php","sliderNavPrevArrow":"Prev","sliderNavNextArrow":"Next","ppExpand":"Expand the image","ppNext":"Next","ppPrev":"Previous","ppClose":"Close","qodefStickyHeaderHeight":0,"qodefStickyHeaderTransparencyHeight":80,"qodefTopBarHeight":"40","qodefLogoAreaHeight":0,"qodefMenuAreaHeight":204,"qodefMobileHeaderHeight":70}};
+var qodefPerPageVars = {"vars":{"qodefMobileHeaderHeight":70,"qodefStickyScrollAmount":0,"qodefHeaderTransparencyHeight":0,"qodefHeaderVerticalWidth":0}};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/6b83b.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/76d15.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/9ed74.js' %}"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes","flexslider":{"rtl":false,"animation":"slide","smoothHeight":true,"directionNav":false,"controlNav":"thumbnails","slideshow":false,"animationSpeed":500,"animationLoop":false,"allowOneSlide":false},"zoom_enabled":"","zoom_options":[],"photoswipe_enabled":"","photoswipe_options":{"shareEl":false,"closeOnScroll":false,"history":false,"hideAnimationDuration":0,"showAnimationDuration":0},"flexslider_enabled":""};
+/* ]]> */
+</script>
+<script src="{% static 'wp-content/cache/minify/f4436.js' %}"></script>
+<!-- Mirrored from donpeppe.qodeinteractive.com/pizza-dark/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 04:42:49 GMT -->
+
+{% endblock %}
+</div>

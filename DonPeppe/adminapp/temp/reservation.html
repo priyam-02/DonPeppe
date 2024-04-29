@@ -1,0 +1,96 @@
+
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+<head>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+
+</style>
+       <!--start content-->
+<div class="w3-container w3-animate-zoom">
+          <main class="page-content">
+            <!--breadcrumb-->
+            <div class="page-breadcrumb align-items-center mb-3">
+              <div class="breadcrumb-title pe-3">Reservation Details
+                     <button type="button" class="btn alert-success radius-30 px-4">Confirmed</button>
+                </div>
+              <div class="ms-auto">
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-primary">Settings</button>-->
+<!--                  <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>-->
+<!--                  </button>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Another action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Something else here</a>-->
+<!--                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+              </div>
+            </div>
+            <!--end breadcrumb-->
+
+              <div style="width:1500px;" class="row">
+                 <div class="col-12 col-lg-9 d-flex">
+                   <div class="card w-100">
+                    <div class="card-header py-3">
+                      <div class="row g-3">
+                        <div class="col-lg-4 col-md-6 me-auto">
+                          <div class="ms-auto position-relative">
+<!--                            <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-search"></i></div>-->
+<!--                            <input class="form-control ps-5" type="text" placeholder="search products">-->
+<!--                          </div>-->
+                        </div>
+                      </div>
+                     </div>
+                     <div class="card-body">
+                       <div class="table-responsive">
+                         <table style="border: 1px solid grey;" class="table align-middle">
+                           <thead class="table-light">
+
+                             <tr>
+
+                               <th>Name</th>
+                                 <th>E-mail</th>
+                                 <th>Contact</th>
+                                  <th>Total Person</th>
+                                 <th>Reservation Date</th>
+                               <th>Timings</th>
+                                 <th> Remove </th>
+
+<!--                                 <th>Details</th>-->
+                             </tr>
+                           </thead>
+                          <tbody>
+                                {% for q in book %}
+                                <tr>
+
+                                    <td>{{q.customer.name}}</td>
+                                    <td>{{q.customer.email}}</td>
+                                    <td>{{q.customer.contact}}</td>
+                                    <td style="text-align:center;">{{q.person}}</td>
+                                    <td>{{q.date}}</td>
+                                    <td>{{q.time}}</td>
+                                               <td style="text-align:center;">
+                                                                  <a href="/adminpanel/deletereserve/{{q.id}}/" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                               </td>
+                                </tr>
+                                {% endfor %}
+                          </tbody>
+                         </table>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+              </div><!--end row-->
+              </div>
+
+          </main>
+</div>
+
+       <!--end page main-->
+
+{% endblock %}
+
+

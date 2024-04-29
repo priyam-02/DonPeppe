@@ -1,0 +1,96 @@
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+
+       <!--start content-->
+          <main class="page-content">
+            <!--breadcrumb-->
+            <div class="page-breadcrumb align-items-center mb-3">
+              <div class="breadcrumb-title pe-3">Order Details</div>
+<!--              <div class="ps-3">-->
+<!--                <nav aria-label="breadcrumb">-->
+<!--                  <ol class="breadcrumb mb-0 p-0">-->
+<!--                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>-->
+<!--                    </li>-->
+<!--                    <li class="breadcrumb-item active" aria-current="page">Orders</li>-->
+<!--                  </ol>-->
+<!--                </nav>-->
+<!--              </div>-->
+              <div class="ms-auto">
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-primary">Settings</button>-->
+<!--                  <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>-->
+<!--                  </button>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Another action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Something else here</a>-->
+<!--                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+              </div>
+            </div>
+            <!--end breadcrumb-->
+
+              <div style="width:1680px;" class="row">
+                 <div class="col-12 col-lg-9 d-flex">
+                   <div class="card w-100">
+                    <div class="card-header py-3">
+                      <div class="row g-3">
+                        <div class="col-lg-4 col-md-6 me-auto">
+                          <div class="ms-auto position-relative">
+<!--                            <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-search"></i></div>-->
+<!--                            <input class="form-control ps-5" type="text" placeholder="search produts">-->
+<!--                          </div>-->
+                        </div>
+                      </div>
+                     </div>
+                     <div class="card-body">
+                       <div class="table-responsive">
+                         <table style="border:1px solid white;font-size:17px;" class="table align-middle">
+                           <thead class="table-light">
+                             <tr>
+                               <th>ID</th>
+                               <th>Name</th>
+                                 <th>Email</th>
+                                 <th>Date</th>
+                                  <th>Quantity</th>
+                                 <th>Products</th>
+                               <th>Price</th>
+                                 <th> Details</th>
+
+
+
+                             </tr>
+                           </thead>
+                           <tbody>
+                           {% for i in ot %}
+                             <tr>
+
+                               <td>{{i.id}}</td>
+                                 <td>{{i.customer.name}}</td>
+                                 <td>{{i.customer.email}}</td>
+
+
+                                  <td>{{i.created_at}}</td>
+
+                                 <td style="text-align:center;">  {{i.quantity}}</td>
+                                     <td>{{i.productd.proname}}</td>
+
+                               <td>{{i.get_total_item_price}}</td>
+                               <td><span class="badge rounded-pill alert-success"><a href="/adminpanel/orderdetail1/{{i.id}}/">View Details</a></span></td>
+
+                             </tr>
+                           {% endfor %}
+                           </tbody>
+                         </table>
+                       </div>
+
+                     </div>
+                   </div>
+                 </div>
+              </div><!--end row-->
+
+          </main>
+       <!--end page main-->
+
+{% endblock %}

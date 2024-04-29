@@ -1,0 +1,159 @@
+
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div class="w3-container w3-animate-left">
+       <!--start content-->
+          <main class="page-content">
+            <!--breadcrumb-->
+            <div class="page-breadcrumb align-items-center mb-3">
+              <div class="breadcrumb-title pe-3">Add Product</div>
+<!--              <div class="ps-3">-->
+<!--                <nav aria-label="breadcrumb">-->
+<!--                  <ol class="breadcrumb mb-0 p-0">-->
+<!--                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>-->
+<!--                    </li>-->
+<!--                    <li class="breadcrumb-item active" aria-current="page">Add New Product</li>-->
+<!--                  </ol>-->
+<!--                </nav>-->
+<!--              </div>-->
+<!--              <div class="ms-auto">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-primary">Settings</button>-->
+<!--                  <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>-->
+<!--                  </button>-->
+<!--                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Another action</a>-->
+<!--                    <a class="dropdown-item" href="javascript:;">Something else here</a>-->
+<!--                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+            <!--end breadcrumb-->
+
+              <div class="row">
+                 <div class="col-lg-8 mx-auto">
+                  <div class="card">
+                    <div class="card-header py-3 bg-transparent">
+                       <h5 class="mb-0">New Food Product</h5>
+                      </div>
+                    <div class="card-body">
+                      <div class="border p-3 rounded">
+                      <form class="row g-3" method="post" action="/adminpanel/addpro/" enctype="multipart/form-data" id="personform" data-cities-url="{% url 'ajax_load_cities' %}" >
+                        {% csrf_token %}
+                        <div class="col-12">
+                          <label class="form-label">Food Item</label>
+                          <input type="text" name="proname" class="form-control" placeholder="Enter the item name">
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Product Description</label>
+                          <textarea name="prod" class="form-control" placeholder="Enter the description" rows="4" cols="4"></textarea>
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Images</label>
+                          <input class="form-control" type="file" name="pimg">
+                        </div>
+<!--                        <div class="col-12">-->
+<!--                          <label class="form-label">Tags</label>-->
+<!--                          <input type="text" class="form-control" placeholder="Enter tags">-->
+<!--                        </div>-->
+                        <div class="col-12 col-md-6">
+                          <label class="form-label">Category</label>
+                          <select class="form-select" name="Category_id" id="id_country">
+
+                            <option selected disabled>Select Category</option>
+                            {% for i in c %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                            {% endfor %}
+
+<!--                            <option>Electronics</option>-->
+<!--                            <option>Furniture</option>-->
+<!--                            <option>Sports</option>-->
+                          </select>
+                        </div>
+
+
+
+                        <div class="col-12 col-md-6">
+                          <label class="form-label">Sub-category</label>
+                          <select class="form-select" name="sub_id" id="id_city">
+                            <option selected disabled>Select Sub-Category</option>
+
+<!--                             <option selected disabled>Select sub Category</option>-->
+<!--                            {% for k in i.sub_set.all %}-->
+<!--                            <option value="{{k.id}}">{{k.name}}</option>-->
+<!--                            {% endfor %}-->
+
+
+
+<!--                            {% for val in courses %}-->
+
+<!--                            <option value="{{val.pk}}">{{val.scname}}</option>-->
+<!--                            {% endfor %}-->
+<!--                            <option>T-Shirts</option>-->
+<!--                            <option>Shoes</option>-->
+<!--                            <option>Mobiles</option>-->
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Price</label>
+                          <div class="row g-3">
+                            <div class="col-lg-9">
+                              <input type="text" name="price" class="form-control" placeholder="Enter the amount">
+                            </div>
+<!--                            <div class="col-lg-3">-->
+<!--                              <div class="input-group">-->
+<!--                                <select class="form-select">-->
+<!--                                  <option> USD </option>-->
+<!--                                  <option> EUR </option>-->
+<!--                                  <option> RUBL </option>-->
+<!--                                </select>-->
+<!--                              </div>-->
+<!--                            </div>-->
+                          </div>
+                        </div>
+<!--                        <div class="col-12">-->
+<!--                          <div class="form-check">-->
+<!--                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">-->
+<!--&lt;!&ndash;                            <label class="form-check-label" for="flexCheckDefault">&ndash;&gt;-->
+<!--&lt;!&ndash;                              Publish on website&ndash;&gt;-->
+<!--&lt;!&ndash;                            </label>&ndash;&gt;-->
+<!--                          </div>-->
+<!--                        </div>-->
+                        <div class="col-12">
+                          <button  type="submit" class="btn btn-primary px-4" style="background-color:#d43f1e;border-color:#d43f1e">Add Food Item</button>
+                        </div>
+                      </form>
+                      </div>
+                     </div>
+                    </div>
+                 </div>
+              </div><!--end row-->
+
+          </main>
+</div>
+
+                                                  <script>
+                                                    $("#id_country").change(function () {
+                                                      var url = $("#personform").attr("data-cities-url");
+                                                      var countryId = $(this).val();
+
+                                                      $.ajax({
+                                                        url: url,
+                                                        data: {
+                                                          'Category_id': countryId
+                                                        },
+                                                        success: function (data) {
+                                                          $("#id_city").html(data);
+                                                        }
+                                                      });
+
+                                                    });
+                                </script>
+       <!--end page main-->
+{% endblock %}

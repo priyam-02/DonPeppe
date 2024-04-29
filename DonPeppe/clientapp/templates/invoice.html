@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+
+</head>
+<body style="font-size:17px;">
+ <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+{% for i in p %}
+                        <p>Payment is successfully processed and your order is on the way</p>
+                        <p class="font-weight-bold" id="o1">Transaction ID: {{i.cart.cart_id}}</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<div class="container mt-5 mb-5">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="card">
+
+
+                        <div class="text-left logo p-2 px-5">
+
+
+
+
+
+                        </div>
+
+
+                        <div class="invoice p-5">
+
+
+                            <h5>Your Order Is Confirmed!</h5>
+
+<br>
+                            <input type="hidden" value="{{i.id}}" name=customer>
+
+
+                            <input type="hidden" value="{{i.customer.name}}" name=name>
+
+
+
+
+
+
+                            <span class="font-weight-bold d-block mt-4" id="o2">Hello,{{i.name}}</span>
+                            {% endfor %}
+<br>
+                            <span>You order has been confirmed !</span>
+
+                            <div class="payment border-top mt-3 mb-3 table-responsive">
+<br>
+                                <table style="border:2px solid black; padding-top:5px; padding-left: 2px;" class="table">
+<thead style="border:2px solid black;">
+                                        <tr>
+
+
+
+                                            <th style="text-align:left;">
+                                                <div class="py-2">
+
+                                                    <span class="d-block text-muted" style="font-weight:500;">Order No.</span>
+
+
+                                                </div>
+                                            </th>
+                                            <th style="text-align:left;">
+                                                <div class="py-2">
+
+                                                    <span style="font-weight:500;"  class="d-block text-muted">Order Date</span>
+
+
+                                                </div>
+                                            </th>
+
+                                            <th style="text-align:left;">
+                                                <div class="py-2">
+
+                                                    <span style="font-weight:500;" class="d-block text-muted">Payment</span>
+
+
+                                                </div>
+                                            </th>
+
+                                            <th style="text-align:left;">
+                                                <div class="py-2">
+
+                                                    <span style="font-weight:500;" class="d-block text-muted">Shipping Address</span>
+
+                                                </div>
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+
+
+                                    <tbody>
+{% for i in p %}
+                                        <tr>
+
+
+
+                                            <td>
+                                                <div class="py-2">
+
+
+                                                <span id="o4">{{i.id}}</span>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="py-2">
+
+
+                                                <span id="o6">{{i.ordered_date}}</span>
+
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+
+                                                <span id="o8">{{i.payment}}</span>
+
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="py-2">
+
+
+                                                <span id="o10">{{i.address}}</span>
+
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+
+                                </table>
+
+
+
+
+
+                            </div>
+
+
+
+<br><br>
+                                <div class="product table-responsive">
+
+                                    <table style="border:2px solid black; padding-top:5px; padding-left: 2px;" class="table">
+ <thead style="border:2px solid black;">
+
+                                        <tr>
+                                        <th style="text-align:left;"  width="30%">
+                                            <span> Product Name</span>
+
+                                        </th>
+                                            <th style="text-align:left;" width="20%">
+
+
+                                                <span>Quantity</span>
+
+
+                                        </th>
+
+
+                                        <th style="text-align:left;" width="20%">
+                                            <div class="text-right" style="margin-right:20px;">
+                                                <span>Price</span>
+                                            </div>
+                                        </th>
+                                        </tr>
+
+
+
+                                    </thead>
+
+
+                                    <tbody>
+                                    {% for i in v %}
+                                        <tr>
+
+                                        <td width="30%">
+                                            <span  id="012" class="font-weight-bold">{{i.productd.proname}}</span>
+
+                                        </td>
+                                            <td  width="20%">
+                                            <div class="product-qty">
+                                                <span class="font-weight-bold" >{{i.quantity}}</span>
+
+                                            </div>
+                                        </td>
+
+
+                                        <td width="20%">
+                                            <div class="text-right" style="margin-right:20px">
+                                                <span class="font-weight-bold">${{i.total}}</span>
+                                            </div>
+                                        </td>
+                                        </tr>
+
+
+                                    {% endfor %}
+                                    </tbody>
+
+                                    </table>
+
+
+
+                                </div>
+
+<br><br>
+
+                                <div class="row d-flex justify-content-end" style="margin-top:14px;">
+
+                                    <div class="col-md-5">
+
+                                        <table class="table table-borderless">
+
+                                            <tbody class="totals" >
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Subtotal</span>
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span>${{amount}}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                 <tr>
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span class="text-muted">Shipping Fee</span>
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span>${{shipping_amount}}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+
+                                                 <tr class="border-top">
+                                                    <td>
+                                                        <div class="text-left">
+
+                                                            <span style="color: #d2401e; font-weight:500;" id="013" class="font-weight-bold">Total</span>
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <span id="o14" class="font-weight-bold" style="color:#d2401e; font-weight:500;">${{total_amount}}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+
+
+                                </div>
+
+<br>
+<br>
+                                <p class="font-weight-bold mb-0" style="color:#d2401e;font-weight:500;">Thank You!<br>
+                                <span style="color:black;">DON PEPPE</span>
+                                </p>
+
+
+
+
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between footer p-3">
+
+
+</div></div></div></div></div>
+</body>
+</html>

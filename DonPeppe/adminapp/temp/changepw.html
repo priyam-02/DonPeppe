@@ -1,0 +1,55 @@
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+       <!--start content-->
+<div class="w3-container w3-animate-left">
+          <main class="page-content">
+            <!--breadcrumb-->
+            <div class="page-breadcrumb align-items-center mb-3">
+
+
+            </div>
+            <!--end breadcrumb-->
+
+              <div class="card">
+                <div class="card-header py-3">
+                  <h6 class="mb-0">Change Your Password</h6>
+                </div>
+                <div class="card-body">
+                   <div class="row">
+                     <div class="col-12 col-lg-4 d-flex">
+                       <div class="card border shadow-none w-100">
+                         <div class="card-body">
+                              <h6  style="color:red">
+                        {% for msg in messages %}
+                          {{msg}}
+                        {% endfor %}
+                    </h6>
+                           <form class="row g-3" method="post" action="/adminpanel/changepw/">
+                               {% csrf_token %}
+                             <div class="col-12">
+                               <label class="form-label">Enter Old Password</label>
+                               <input type="password" maxlength="4" name="password" class="form-control" placeholder="Old Password">
+                             </div>
+                            <div class="col-12">
+                              <div class="d-grid">
+                                <button type="submit" style="background-color:#d43f1e;border-color:#d43f1e" class="btn btn-primary">Change Password</button>
+                              </div>
+                            </div>
+                           </form>
+                         </div>
+                       </div>
+                     </div>
+
+                   </div><!--end row-->
+                </div>
+              </div>
+
+          </main>
+</div>
+       <!--end page main-->
+
+{% endblock %}
