@@ -9,16 +9,16 @@ creating an account, logging in, placing an order, reserving a table, and orderi
 item is provided by the client on the other sid
 
 ## Technology Used
-Front-end technologies used in this project include HTML, CSS, Javascript,
+1. Front-end technologies used in this project include HTML, CSS, Javascript,
 Bootstrap, jQuery, and AJAX, and 
 
-Back-end technologies include Python, Django.
+2. Back-end technologies include Python, Django.
 
-The software used is PyCharm, and for the database, MySQL is used.
+3. The software used is PyCharm, and for the database, MySQL is used.
 
 
 ## Demo
-https://github.com/priyam-02/DonPeppe/assets/108848788/bc8fe9ff-4dc5-440f-957c-c76ce4e27543
+<kbd>https://github.com/priyam-02/DonPeppe/assets/108848788/bc8fe9ff-4dc5-440f-957c-c76ce4e27543</kbd>
 
 
 
