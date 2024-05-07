@@ -18,7 +18,7 @@ Bootstrap, jQuery, and AJAX, and
 
 
 ## Demo
-<kbd>https://github.com/priyam-02/DonPeppe/assets/108848788/bc8fe9ff-4dc5-440f-957c-c76ce4e27543</kbd>
+https://github.com/priyam-02/DonPeppe/assets/108848788/bc8fe9ff-4dc5-440f-957c-c76ce4e27543
 
 
 
@@ -27,7 +27,7 @@ Bootstrap, jQuery, and AJAX, and
 
 ### Admin Side
 #### 1. Admin (Sign up, Sign in, Dashboard)
-![1](https://github.com/priyam-02/DonPeppe/assets/108848788/d58bcb8f-6e67-4170-a5a0-cb366f024291)
+<kbd>![1](https://github.com/priyam-02/DonPeppe/assets/108848788/d58bcb8f-6e67-4170-a5a0-cb366f024291)</kbd>
 
 ![2](https://github.com/priyam-02/DonPeppe/assets/108848788/ddff92e2-631f-472a-b233-1f9d1752f23e)
 
