@@ -6,7 +6,7 @@ admin side will handle tasks like adding products and their subcategories, addin
 cities, and handling customer bookings and orders. Here, the restaurant's manager
 or staff members can create an account and log in. The customer's assistance in
 creating an account, logging in, placing an order, reserving a table, and ordering an
-item is provided by the client on the other sid
+item is provided by the client on the other side.
 
 ## Technology Used
 1. Front-end technologies used in this project include HTML, CSS, Javascript,
